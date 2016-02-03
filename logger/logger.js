@@ -8,6 +8,10 @@ socket.on('connect', function () {
     console.log('Speedtester is connected!');
 });
 
+socket.on('speedtest:history', function () {
+    socket.emit('speedtest:results', history);
+});
+
 socket.on('speedtest:run', function () {
 
     var test = speedtest();
