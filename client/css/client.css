@@ -7,3 +7,27 @@ h1, h2, h3, h4, h5 {
     font-weight: 300;
 }
 
+/* SVG Dependent */
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.download-line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
+.upload-line {
+    fill: none;
+    stroke: #FF7F0E;
+    stroke-width: 1.5px;
+}

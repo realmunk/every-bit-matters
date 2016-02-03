@@ -27,7 +27,7 @@ socket.on('logger:run', function () {
         };
 
         history.push(result);
-        socket.emit('speedtest:results', history);
+        socket.emit('logger:results', history);
 
         var jsonResult = JSON.stringify(history);
         fileSystem.writeFile(fileName, jsonResult, function (err) {

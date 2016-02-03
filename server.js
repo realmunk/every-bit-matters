@@ -3,7 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
-var timeInterval = process.env.TIME_INTERVAL || 30000;
+var timeInterval = process.env.TIME_INTERVAL || 5000;
 
 
 io.on('connect', function (socket) {
@@ -24,7 +24,8 @@ setInterval(function () {
 
 }, timeInterval);
 
-app.use('/', express.static('client'));
+app.use(express.static('client'));
+app.use(express.static('node_modules/d3/'));
 
 http.listen(port, function () {
     console.log('Running our app at http://localhost:3000')
