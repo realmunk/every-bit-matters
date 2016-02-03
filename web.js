@@ -8,10 +8,7 @@ io.on('connect', function (socket) {
 
     io.emit('speedtest:history');
 
-    console.log('Looksies! We got ourselves a user!');
-
     socket.on('speedtest:results', function (data) {
-        console.log("speedtest:results");
         io.emit('speedtest:display', data);
     });
 
