@@ -4,7 +4,7 @@
   "description": "Workshop providing an introduction to web-architecture through a step-by-step tutorial on how to make a full-stack web application with WebSockets. The domain is speedtesting – where Every Bit Matters.",
   "main": "web.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node web.js"
   },
   "repository": {
     "type": "git",
