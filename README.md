@@ -1,15 +1,17 @@
 # every-bit-matters
 Hands-on workshop in web architecture with [node.js](http://www.nodejs.org) and deployment with [Heroku](http://heroku.com).
 
-Build a controller and interface for network-speed monitoring with Socket.IO, Express, and online viewer using D3.js
+Goal: Learn to build and deploy a web application for visualizing data from and controlling distributed speed test loggers.
 
-## Required software
+## Get started
+
+### Download and install required software
 
 * [node.js](http://www.nodejs.org)
 * [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
 
-## Get started
+### Clone and install dependencies
 
 ```bash
 	$ git clone https://github.com/krsjan/every-bit-matters
@@ -17,21 +19,7 @@ Build a controller and interface for network-speed monitoring with Socket.IO, Ex
 	$ npm install
 ```
 
-## Components
-
-Server:
-
-```bash
-    $ npm start
-```
-
-Logger:
-
-```bash
-   $ npm run-script log
-```
-
-## Heroku setup
+### Heroku setup
 
 ```bash
 	$ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
