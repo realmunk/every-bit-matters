@@ -25,11 +25,3 @@ You need a user account for Heroku:
  
 Install the Heroku Toolbelt:
 * [Heroku Toolbelt](https://toolbelt.heroku.com/)
-
-Check that it's working by logging in, configuring, and deploying.
-
-```bash
-	$ heroku login
-	$ heroku git:remote -a every-bit-matters
-	$ git push heroku master
-```
