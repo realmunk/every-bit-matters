@@ -24,6 +24,7 @@
   "homepage": "https://github.com/krsjan/every-bit-matters#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "socket.io": "^1.4.5"
+    "socket.io": "^1.4.5",
+    "speedtest-net": "^1.2.4"
   }
 }
