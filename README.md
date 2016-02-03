@@ -8,8 +8,6 @@ Goal: Learn to build and deploy a web application for visualizing data from and
 ### Download and install required software
 
 * [node.js](http://www.nodejs.org)
-* [Heroku Toolbelt](https://toolbelt.heroku.com/)
-
 
 ### Clone and install dependencies
 
@@ -21,9 +19,9 @@ Goal: Learn to build and deploy a web application for visualizing data from and
 
 ### Heroku setup
 
-```bash
-	$ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-	$ heroku login
-	$ heroku git:remote -a every-bit-matters
-	$ git push heroku master
-```
+You need a user account for Heroku:
+* [Heroku](https://heroku.com/)
+
+ 
+Install the Heroku Toolbelt:
+* [Heroku Toolbelt](https://toolbelt.heroku.com/)
