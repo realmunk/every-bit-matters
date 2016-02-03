@@ -17,21 +17,25 @@ Build a controller and interface for network-speed monitoring with Socket.IO, Ex
 	$ npm install
 ```
 
-## Local startup
+## Components
 
 Server:
 
-    cd /d3-speedtest-tutorial
-    npm start
+```bash
+    $ npm start
+```
 
 Logger:
 
-    cd /d3-speedtest-tutorial
-    npm run-script log
+```bash
+   $ npm run-script log
+```
 
 ## Heroku setup
 
-	wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-	heroku login
-	heroku git:remote -a every-bit-matters
-	git push heroku master
+```bash
+	$ wget -O- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+	$ heroku login
+	$ heroku git:remote -a every-bit-matters
+	$ git push heroku master
+```
