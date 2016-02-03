@@ -1,12 +1,13 @@
 # every-bit-matters
-Hands-on workshop in web architecture with node.js[http://www.nodejs.org].
+Hands-on workshop in web architecture with [node.js](http://www.nodejs.org).
 
 Build a controller and interface for network-speed monitoring with Socket.IO, Express, and online viewer using D3.js
 
+## Required software
 
-## Dependency
+* [node.js](http://www.nodejs.org)
+* [Heroku Toolbelt](https://toolbelt.heroku.com/)
 
-* node.js[http://www.nodejs.org]
 
 ## Get started
 
