@@ -1,5 +1,9 @@
-var io = io();
+var socket = io();
 
-io.on('connect', function (data) {
-   console.log("I am connected");
+socket.on('connect', function (data) {
+    console.log("I am connected");
+});
+
+socket.on('speedtest:display', function (data) {
+    console.log(data);
 });
