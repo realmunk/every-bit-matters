@@ -1,5 +1,5 @@
 # every-bit-matters
-Hands-on workshop in web architecture with [node.js](http://www.nodejs.org).
+Hands-on workshop in web architecture with [node.js](http://www.nodejs.org) and deployment with [Heroku](http://heroku.com).
 
 Build a controller and interface for network-speed monitoring with Socket.IO, Express, and online viewer using D3.js
 
@@ -10,7 +10,6 @@ Build a controller and interface for network-speed monitoring with Socket.IO, Ex
 
 
 ## Get started
-
 
 ```bash
 	$ git clone https://github.com/krsjan/every-bit-matters
