@@ -1,5 +1,5 @@
-var io = io();
+var socket = io();
 
-io.on('connect', function (data) {
+socket.on('connect', function (data) {
    console.log("I am connected");
 });

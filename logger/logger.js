@@ -3,9 +3,9 @@ var fileSystem = require('fs');
 var test = speedtest();
 var fileName = __dirname + '/history.json';
 var history = JSON.parse(fileSystem.readFileSync(fileName));
-var io = require('socket.io-client')('http://localhost:3000/');
+var socket = require('socket.io-client')('http://localhost:3000/');
 
-io.on('connect', function () {
+socket.on('connect', function () {
     console.log('Logger is connected');
 });
 
