@@ -1,6 +1,5 @@
 var speedtest = require('speedtest-net');
 var fileSystem = require('fs');
-var test = speedtest();
 var fileName = __dirname + '/history.json';
 var history = JSON.parse(fileSystem.readFileSync(fileName));
 var socket = require('socket.io-client')(process.argv[2] || 'http://localhost:3000');
@@ -15,6 +14,8 @@ socket.on('logger:history', function () {
 
 socket.on('logger:run', function () {
     console.log('Starting speedtest...');
+
+    var test = speedtest();
 
     test.on('data', function (data) {
         var result = {
