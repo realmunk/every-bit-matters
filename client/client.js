@@ -4,7 +4,7 @@ socket.on('connect', function (data) {
     console.log("I am connected");
 });
 
-socket.on('logger:display', function (data) {
+socket.on('client:display', function (data) {
     console.log(data);
     drawGraph(data);
 });
@@ -63,7 +63,7 @@ var dlLine = svg.append("path")
 var ulLine = svg.append("path")
     .attr("class", "upload-line");
 
-var drawGraph = function (data) {
+function drawGraph (data) {
     x.domain(d3.extent(data, function(d) { return d.date; }));
     y.domain([0, d3.max(data, function(d) { return d.download; })]);
 
