@@ -7,6 +7,7 @@ Goal: Learn to build and deploy a web application for visualizing data from and
 
 ### Download and install required software
 
+* [git](http://www.git-scm.org)
 * [node.js](http://www.nodejs.org)
 
 ### Clone and install dependencies
