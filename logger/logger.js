@@ -1,8 +1,8 @@
-var speedtest = require('speedtest-net'),
-    fileSystem = require('fs'),
-    test = speedtest(),
-    fileName = __dirname + '/history.json',
-    history = JSON.parse(fileSystem.readFileSync(fileName));
+var speedtest = require('speedtest-net');
+var fileSystem = require('fs');
+var test = speedtest();
+var fileName = __dirname + '/history.json';
+var history = JSON.parse(fileSystem.readFileSync(fileName));
 
 console.log('Starting speedtest...');
 

@@ -8,7 +8,7 @@
     "url": "git+https://github.com/krsjan/every-bit-matters.git"
   },
   "scripts": {
-    "start": "node web.js"
+    "start": "node server.js"
   },
   "keywords": [
     "WebSockets",
