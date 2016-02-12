@@ -7,4 +7,4 @@ Goal: Learn to build and deploy a web application for visualizing data from and
 
 ### Get started
 
-Install the dependencies outlined in the [installation guide](https://github.com/krsjan/every-bit-matters/wiki/Instalation-Guide). Then head over to the [tutorial](https://github.com/krsjan/every-bit-matters/wiki/0:-Hello-Client-and-Server).
+Install the dependencies outlined in the [installation guide](https://github.com/krsjan/every-bit-matters/wiki/installation-guide). Then head over to the [tutorial](https://github.com/krsjan/every-bit-matters/wiki/0:-Hello-Client-and-Server).
