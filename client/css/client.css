@@ -1,19 +1,23 @@
-body {
-    padding: 10px;
-    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif;
-}
-
-#wrapper {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 h1, h2, h3, h4, h5 {
     font-weight: 300;
 }
 
-table {
-    text-align: left;
-    padding: 5px;
-    min-width: 100%;
+.fullheight {
+    height: 100%;
+}
+.nav{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: auto;
+}
+.big{
+    font-size: 1em;
+    vertical-align: middle;
+}
+.bold{
+    font-weight: bold;
+}
+.history{
+    max-height: 200px;
 }
