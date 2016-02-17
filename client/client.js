@@ -18,7 +18,7 @@ socket.on('client:display', function (results) {
         var download = document.createElement('td');
         var upload = document.createElement('td');
         // add content to columns
-        date.innerText = result.date;
+        date.innerText = (new Date(result.date)).toLocaleString();
         ping.innerText = result.ping;
         download.innerText = result.download;
         upload.innerText = result.upload;
