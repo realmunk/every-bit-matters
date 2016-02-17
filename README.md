@@ -1,27 +1,16 @@
 # every-bit-matters
-Hands-on workshop in web architecture with [node.js](http://www.nodejs.org) and deployment with [Heroku](http://heroku.com).
+### Starting point
 
-Goal: Learn to build and deploy a web application for visualizing data from and controlling distributed speed test loggers.
-
-## Get started
-
-### Download and install required software
-
-* [node.js](http://www.nodejs.org)
-
-### Clone and install dependencies
-
-```bash
-	$ git clone https://github.com/krsjan/every-bit-matters
-	$ cd every-bit-matters
-	$ npm install
+```
+  $ git checkout –f stage-4
 ```
 
-### Heroku setup
+### Assignment
+* Visualize the data sent by the logger in the web client
 
-You need a user account for Heroku:
-* [Heroku](https://heroku.com/)
+### Step by step instructions
 
- 
-Install the Heroku Toolbelt:
-* [Heroku Toolbelt](https://toolbelt.heroku.com/)
+Instructions for [Step 4 - Visualize the data](https://github.com/krsjan/every-bit-matters/wiki/4:-Make-a-visualization-in-the-client)
+
+### End point
+Verify that the client is updated whenever a new speedtest result is received.
