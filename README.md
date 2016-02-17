@@ -45,16 +45,16 @@ All participating universities has their own local competition:
 | UiB        | 07.04.2016 16:00 | 21.04 23:59 |
 | UiT        | 12.04.2016 16:00 | 26.04 16:00 |
 
-The following week after the deadline, the submissions are reviewed by our *Grand Jury* to select a winner.
+The following week after the deadline, the submissions are reviewed by our *Grand Jury* to select the best submissions.
 
-The winner receives a prize, and their application will represent their university in the _Battle of the Universities_. 
+The best submissions will be awarded a prize, and qualifies to the _Battle of the Universities_.
 
 ## The Battle of the Universities
 
-When all Universities have a winner each, the winning applications are to compete in _The Battle of the Universities_.
+The _Battle of the Universities_ is to be held in late June at our offices in Oslo, Norway. 
 
-The 10th of May, our Grand Jury will pick a winning university.
+The grand winner will receive an award, a great prize, glory and honour.
 
-The winner will receive an award, a prize and honour.
+In time, more information will come.
 
 ### Good luck!
