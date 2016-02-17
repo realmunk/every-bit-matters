@@ -7,7 +7,7 @@
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>  
         <script src="socket.io.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-        <script src="https://code.highcharts.com"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.4/js/jquery.tablesorter.min.js"></script>
 
     </head>
@@ -38,7 +38,10 @@
                         </div>
                     </div>
                     <div class="col l6 history">
-                        <h2>History</h2>
+                        <h2 class="hide">History</h2>
+                        <div id="graph" class="graph">
+
+                        </div>
                         <table class="highlight tablesorter" id="history-table">
                             <thead>
                                 <tr>
