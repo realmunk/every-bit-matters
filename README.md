@@ -1,27 +1,60 @@
-# every-bit-matters
-Hands-on workshop in web architecture with [node.js](http://www.nodejs.org) and deployment with [Heroku](http://heroku.com).
+# every-bit-matters: Contest
 
-Goal: Learn to build and deploy a web application for visualizing data from and controlling distributed speed test loggers.
+_Welcome to the contest branch. Your very own starter kit for the contest:_ 
 
-## Get started
+> The branch contains an operational client-side application which is served by a web server. It communicates through WebSockets with the speedlogger application.
 
-### Download and install required software
+## The Contest
 
-* [node.js](http://www.nodejs.org)
+Create your own app by extending the speed-test application. Make a new and creative visualization, add interesting features, support for several loggers, or a better interface ... You can do anything, so blow us away! Just remember to adhere to the following rules: 
 
-### Clone and install dependencies
+## Rules
 
-```bash
-	$ git clone https://github.com/krsjan/every-bit-matters
-	$ cd every-bit-matters
-	$ npm install
-```
+* Build the application based on a fork of the [every-bit-matters](https://www.github.com/krsjan/every-bit-matters) repo.
+* Use node.js, and the browser-supported languages such as JavaScript, HTML, CSS. 
+* Elaborate on the architecture (Event-Driven Architecture and Client Server)
 
-### Heroku setup
+### Evaluation
 
-You need a user account for Heroku:
-* [Heroku](https://heroku.com/)
+Your submission will be evaluated based on the following criteria:
 
- 
-Install the Heroku Toolbelt:
-* [Heroku Toolbelt](https://toolbelt.heroku.com/)
+* Creativity
+* Code Quality 
+* Finesse
+* Usability
+
+### How to participate
+
+Participating is a simple process. Use your own fork and clone of 'every-bit-matters'. Do your magic. Remember to commit and push along the way.
+
+### Sending your submission
+
+* Commit and push to your branch
+* Create a [Pull Request](https://help.github.com/articles/using-pull-requests/): Remember to select the branch you have been working on.
+* Include the name of your University
+
+
+### Contest Outline
+
+All participating universities has their own local competition: 
+
+| University | Contest start    | Deadline    |
+| ---------- | ---------------- | ----------- |
+| NTNU       | 17.02.2016 16:00 | 01.03 23:59 |
+| UiO        | 03.03.2016 16:00 | 17.03 23:59 |
+| UiB        | 07.04.2016 16:00 | 21.04 23:59 |
+| UiT        | 12.04.2016 16:00 | 26.04 16:00 |
+
+The following week after the deadline, the submissions are reviewed by our *Grand Jury* to select a winner.
+
+The winner receives a prize, and their application will represent their university in the _Battle of the Universities_. 
+
+## The Battle of the Universities
+
+When all Universities have a winner each, the winning applications are to compete in _The Battle of the Universities_.
+
+The 10th of May, our Grand Jury will pick a winning university.
+
+The winner will receive an award, a prize and honour.
+
+### Good luck!
