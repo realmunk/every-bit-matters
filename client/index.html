@@ -7,6 +7,9 @@
         <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>  
         <script src="socket.io.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <script src="https://code.highcharts.com"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.4/js/jquery.tablesorter.min.js"></script>
+
     </head>
     <body>
         <div class="nav text-center">
@@ -36,15 +39,18 @@
                     </div>
                     <div class="col l6 history">
                         <h2>History</h2>
-                        <table>
+                        <table class="highlight tablesorter" id="history-table">
                             <thead>
-                                <th>Down</th>
-                                <th>Up</th>
-                                <th>Ping</th>
-                                <th>Date</th>
+                                <tr>
+                                    <th>Down</th>
+                                    <th>Up</th>
+                                    <th>Ping</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
                             </thead>
                             <tbody id="history">
-
+                                <!-- Here be dragons -->
                             </tbody>
                         </table>
                     </div>
