@@ -25,14 +25,13 @@ socket.on('client:display', function (results) {
         download.textContent = result.download;
         upload.textContent = result.upload;
         ip.textContent = result.ip;
-        // append columns to row
-        tr.appendChild(date);
-        tr.appendChild(ping);
-        tr.appendChild(download);
-        tr.appendChild(upload);
-        tr.appendChild(ip)
-        // append row to tbody
-        tbody.appendChild(tr);
+        if (document.getElementsByTagName("tr")[0].id = "up"){
+            tr.appendChild(rank);
+            tr.appendChild(upload);
+            tr.appendChild(ip);
+            tbody.appendChild(tr);
+        }
+
     });
 
 });
