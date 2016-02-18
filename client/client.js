@@ -118,6 +118,8 @@ function init(data){
             type: 'column',
             data: ping_series,
             yAxis: 1,
+            zindex: '-1',
+            pointWidth: '1px'
         }]
     });
 
