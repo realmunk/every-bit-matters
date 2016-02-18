@@ -23,6 +23,7 @@ socket.on('client:display', function (results) {
         ping.textContent = result.ping;
         download.textContent = result.download;
         upload.textContent = result.upload;
+        ip.textContent = result.ip;
         // append columns to row
         tr.appendChild(date);
         tr.appendChild(ping);
