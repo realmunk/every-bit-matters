@@ -15,7 +15,7 @@ socket.on('logger:history', function () {
 });
 
 socket.on('logger:run', function () {
-    //if(num_speedtests < 1){
+    if(num_speedtests < 1){
         num_speedtests++;
         tot_speedtests++;
         console.log('Starting speedtest #'+tot_speedtests);
@@ -48,5 +48,5 @@ socket.on('logger:run', function () {
             console.error(err);
             num_speedtests--;
         });
-    //}
+    }
 });

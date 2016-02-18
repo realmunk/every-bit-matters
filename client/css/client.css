@@ -5,30 +5,53 @@ h1, h2, h3, h4, h5 {
 .fullheight {
     height: 100%;
 }
-.nav{
+
+.big {
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.nav {
     position: fixed;
     top:5px;
     left:25px;
     width: 100%;
     height: auto;
+}
 
+.head {
+    height: 70%;
 }
-.big{
-    font-size: 1em;
-    vertical-align: middle;
+
+.head .info {
+    font-weight: 200;
+    font-size: 12vmin;
 }
-.bold{
-    font-weight: bold;
-}
-.history{
+
+.history {
     max-height: 300px;
 }
+
 .graph {
-    height: 400px;
+    min-height: 200px;
+    height: 50%;
     width: 100%;
-    margin-bottom: 100px;
+    bottom: 0;
+    right: 0;
+    float: right;
+    position: absolute;
+    z-index: -1;
+}
+
+.graph .highcharts-container {
+    float: right;
 }
 
 .valign{
     width: 100%;
 }
+

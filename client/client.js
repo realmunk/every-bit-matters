@@ -1,6 +1,6 @@
 var socket = io();
 var first = true;
-var max_display_len = 200;
+var max_display_len = 100;
 var chart;
 
 socket.on('connect', function (data) {
@@ -23,19 +23,19 @@ function itemToRow(item){
 function init(data){
 
     var tr = '';
-    var stop_at = data.length - max_display_len;
     var upload_series = [];
     var download_series = [];
     var ping_series = [];
+    var first = Math.max(data.length - max_display_len, 0);
 
-    for (var i = 0; i < data.length - 1; i++) {
+    for (var i = first; i < data.length - 1; i++) {
         var d = data[i];
         var dd = d.date;
 
         tr += itemToRow(d);
-        /*download_series.push([dd, d.download]);
+        download_series.push([dd, d.download]);
         upload_series.push([dd, d.upload]);
-        ping_series.push([dd, d.ping]);*/
+        ping_series.push([dd, d.ping]);
 
     };
 
@@ -47,6 +47,15 @@ function init(data){
             renderTo: 'graph',
             defaultSeriesType: 'spline',
             zoomType: 'x',
+            backgroundColor: 'transparent',
+            zindex: '-1',
+            panning: true,
+            panKey: 'shift',
+            events: {
+                load: function (event){
+                    this;
+                }
+            }
         },
         title: {
             text:""
@@ -54,25 +63,32 @@ function init(data){
         xAxis: {
             type: 'datetime',
             tickPixelInterval: 150,
-            maxZoom: 20 * 1000
+            //maxZoom: 20 * 1000,
+            //min: $(download_series).get(0)[0],
+            //max: $(download_series).get(-1)[0],
         },
         yAxis: {
             title: {
                 text: 'MB/s'
             },
-            visible: false
+            visible: true,
+            gridLineWidth: 0,
+            opposite: true,
         },
         series: [{
             name: 'Download',
             data: download_series,
-            color: '#F81810'
+            color: '#F81810',
         }, {
             name: 'Upload',
             data: upload_series,
+            color: '#F8D010',
+            lineWidth: '1px',
             dashStyle: 'ShortDash',
-            color: '#F8D010'
         }]
     });
+
+    
 }
 
 socket.on('client:display', function (data) {
