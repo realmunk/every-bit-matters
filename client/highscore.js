@@ -8,6 +8,7 @@ socket.on('client:display', function (results) {
 
     var tbody = document.getElementsByTagName('tbody');
     for(i = 1; i < tbody.length; i++){
+        console.log(document.getElementsByTagName("tbody")[i]);
         tbody[i].innerHTML = '';
     }
 
@@ -81,6 +82,6 @@ socket.on('client:display', function (results) {
     addToCorrectHighscore(maxD);
     addToCorrectHighscore(maxU);
     addToCorrectHighscore(minP);
-    
+
 
 });
