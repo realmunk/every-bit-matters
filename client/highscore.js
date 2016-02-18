@@ -36,19 +36,19 @@ socket.on('client:display', function (results) {
                 newtrlist[i].appendChild(rank);
                 newtrlist[i].appendChild(ping);
                 newtrlist[i].appendChild(ip);
-                tbodylist[i].appendChild(tr)
+                tbodylist[i].appendChild(newtrlist[0])
             }
             else if(trlist[i].id == "down"){
                 newtrlist[i].appendChild(rank);
                 newtrlist[i].appendChild(download);
                 newtrlist[i].appendChild(ip);
-                tbodylist[i].appendChild(tr)
+                tbodylist[i].appendChild(newtrlist[0])
             }
             else if(trlist[i].id == "up"){
                 newtrlist[i].appendChild(rank);
                 tnewtrlist[i].appendChild(upload);
                 newtrlist[i].appendChild(ip);
-                tbodylist[i].appendChild(tr)
+                tbodylist[i].appendChild(newtrlist[0])
             };
         };
     });
