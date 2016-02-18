@@ -4,6 +4,7 @@ var fileName = __dirname + '/history.json';
 var history = JSON.parse(fileSystem.readFileSync(fileName));
 var socket = require('socket.io-client')(process.argv[2] || 'http://localhost:3000');
 var num_speedtests = 0;
+var tot_speedtests = 0;
 
 socket.on('connect', function () {
     console.log('Logger is connected');
@@ -14,9 +15,10 @@ socket.on('logger:history', function () {
 });
 
 socket.on('logger:run', function () {
-    if(num_speedtests < 1){
+    //if(num_speedtests < 1){
         num_speedtests++;
-        console.log('Starting speedtest...');
+        tot_speedtests++;
+        console.log('Starting speedtest #'+tot_speedtests);
         
         var test = speedtest();
 
@@ -36,7 +38,7 @@ socket.on('logger:run', function () {
                 if (err) {
                     console.log('Something went wrong: ' + err);
                 } else {
-                    console.log('Speedtest finished');
+                    console.log('Speedtest finished with '+num_speedtests+' tests running');
                 }
             });
             num_speedtests--;
@@ -46,5 +48,5 @@ socket.on('logger:run', function () {
             console.error(err);
             num_speedtests--;
         });
-    }
+    //}
 });

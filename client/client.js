@@ -28,7 +28,7 @@ function init(data){
     var download_series = [];
     var ping_series = [];
 
-    for (var i = 0; i < data.length - 1; i++) {
+    for (var i = data.length; i < data.length - 1; i++) {
         var d = data[i];
         var dd = d.date;
 
@@ -46,9 +46,7 @@ function init(data){
         chart: {
             renderTo: 'graph',
             defaultSeriesType: 'spline',
-            events: {
-                load: requestData
-            }
+            zoomType: 'x',
         },
         title: {
             text:""
@@ -61,22 +59,19 @@ function init(data){
         yAxis: {
             title: {
                 text: 'MB/s'
-            }
+            },
+            visible: false
         },
         series: [{
             name: 'Download',
             data: download_series
         }, {
             name: 'Upload',
-            data: upload_series
+            data: upload_series,
+            dashStyle: 'ShortDash'
         }]
     });
 }
-
-function requestData(){
-
-}
-
 
 socket.on('client:display', function (data) {
     var last = $(data).get(-1);
@@ -92,18 +87,9 @@ socket.on('client:display', function (data) {
         $('#history').prepend(itemToRow(last));
         $("#history-table").trigger("update"); 
 
-
-        chart.series[0].addPoint([last.date, last.download], true, false);
-        chart.series[1].addPoint([last.date, last.upload], true, false);
-
-        /*
-
-        var series = chart.series[0],
-        shift = series.data.length > 20;
-        // add the point
-        
-
-        */
+        var shift = chart.series[0].data.length > 30;
+        chart.series[0].addPoint([last.date, last.download], true, shift);
+        chart.series[1].addPoint([last.date, last.upload], true, shift);
 
     }
 

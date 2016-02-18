@@ -18,45 +18,53 @@
                 BL4ZE
             </h4>
         </div>
-        <div class="valign-wrapper fullheight">
-            <div class="valign container">
-                <div class="row">
-                    <div class="col l6 head">
-                        <div class="">
-                            <h1>
-                                <span class="bold" id="download">0</span> MB/s
-                                <i class="material-icons big">keyboard_arrow_down</i>
-                            </h1>
-                            <h3>
-                                <span class="bold" id="upload">0</span> MB/s 
-                                <i class="material-icons big">keyboard_arrow_up</i>
-                            </h3>
-                            <h4>
-                                <span class="" id="ping">0</span> ms
-                                <i class="material-icons big">compare_arrows</i>
-                            </h5>
+        <div class="container">
+            <div class="valign-wrapper fullheight">
+                <div class="valign">
+                    <div class="row">
+                        <div class="col l5 head">
+                            <div class="">
+                                <h1>
+                                    <span class="bold" id="download">0</span> MB/s
+                                    <i class="material-icons big">keyboard_arrow_down</i>
+                                </h1>
+                                <h3>
+                                    <span class="bold" id="upload">0</span> MB/s 
+                                    <i class="material-icons big">keyboard_arrow_up</i>
+                                </h3>
+                                <h4>
+                                    <span class="" id="ping">0</span> ms
+                                    <i class="material-icons big">compare_arrows</i>
+                                </h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col l6 history">
-                        <h2 class="hide">History</h2>
-                        <div id="graph" class="graph">
+                        <div class="col l7 history">
+                            <h2 class="hide">History</h2>
+                            <div id="graph" class="graph">
 
+                            </div>
                         </div>
-                        <table class="highlight tablesorter" id="history-table">
-                            <thead>
-                                <tr>
-                                    <th>Down</th>
-                                    <th>Up</th>
-                                    <th>Ping</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <tbody id="history">
-                                <!-- Here be dragons -->
-                            </tbody>
-                        </table>
                     </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col l12">
+                    <table class="highlight tablesorter" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>Down</th>
+                                <th>Up</th>
+                                <th>Ping</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history">
+                            <!-- Here be dragons -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
