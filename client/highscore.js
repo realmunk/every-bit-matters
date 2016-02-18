@@ -10,29 +10,40 @@ socket.on('client:display', function (results) {
     tbody.innerHTML = '';
 
     results.forEach(function (result) {
-
-        // add table row
-        var tr = document.createElement('tr');
-        // add columns
-        var date = document.createElement("tr");
+        var trlist = document.getElementsByTagName("tr");
+        var tbodylist = document.getElementsByTagName("tbody");
         var rank = document.createElement('td');
         var ping = document.createElement('td');
         var download = document.createElement('td');
         var upload = document.createElement('td');
         var ip = document.createElement('td');
-        // add content to columns
-        date.textContent = (new Date(result.date)).toLocaleString();
+        rank.textContent = "1";
         ping.textContent = result.ping;
         download.textContent = result.download;
         upload.textContent = result.upload;
         ip.textContent = result.ip;
-        if (document.getElementsByTagName("tr")[0].id = "up"){
-            tr.appendChild(rank);
-            tr.appendChild(upload);
-            tr.appendChild(ip);
-            tbody.appendChild(tr);
-        }
 
+
+        for(i = 0;i < trlist.length; i++){
+            var tr = document.createElement('tr');
+            if (trlist[i].id == "pi"){
+                tr.appendChild(rank);
+                tr.appendChild(ping);
+                tr.appendChild(ip);
+                tbodylist[i].appendChild(tr)
+            }
+            else if(trlist[i].id == "down"){
+                tr.appendChild(rank);
+                tr.appendChild(download);
+                tr.appendChild(ip);
+                tbodylist[i].appendChild(tr)
+            }
+            else if(trlist[i].id == "up"){
+                tr.appendChild(rank);
+                tr.appendChild(upload);
+                tr.appendChild(ip);
+                tbodylist[i].appendChild(tr)
+            };
+        };
     });
-
 });
