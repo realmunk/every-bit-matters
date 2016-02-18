@@ -72,7 +72,7 @@ socket.on('client:display', function (results) {
         tr[ind].appendChild(column2);
         tr[ind].appendChild(column3);
         tr[ind].appendChild(column4)
-        tbody[ind].appendChild(tr);
+        tbody[ind].appendChild(tr[ind]);
     }
 
     addToCorrectHighscore(maxD);
