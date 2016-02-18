@@ -28,14 +28,14 @@ function init(data){
     var download_series = [];
     var ping_series = [];
 
-    for (var i = data.length; i < data.length - 1; i++) {
+    for (var i = 0; i < data.length - 1; i++) {
         var d = data[i];
         var dd = d.date;
 
         tr += itemToRow(d);
-        download_series.push([dd, d.download]);
+        /*download_series.push([dd, d.download]);
         upload_series.push([dd, d.upload]);
-        ping_series.push([dd, d.ping]);
+        ping_series.push([dd, d.ping]);*/
 
     };
 
@@ -64,11 +64,13 @@ function init(data){
         },
         series: [{
             name: 'Download',
-            data: download_series
+            data: download_series,
+            color: '#F81810'
         }, {
             name: 'Upload',
             data: upload_series,
-            dashStyle: 'ShortDash'
+            dashStyle: 'ShortDash',
+            color: '#F8D010'
         }]
     });
 }
