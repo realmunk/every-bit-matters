@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5 {
     right: 0;
     float: right;
     position: absolute;
-    z-index: -1;
+    /*z-index: -1;*/
 }
 
 .graph .highcharts-container {
@@ -54,5 +54,9 @@ h1, h2, h3, h4, h5 {
 
 .valign{
     width: 100%;
+}
+
+.tablesorter-header{
+    cursor: pointer;
 }
 

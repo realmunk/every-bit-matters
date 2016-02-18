@@ -31,7 +31,7 @@ socket.on('logger:run', function () {
             };
 
             history.push(result);
-            socket.emit('server:results', history);
+            socket.emit('server:last', result);
 
             var jsonResult = JSON.stringify(history);
             fileSystem.writeFile(fileName, jsonResult, function (err) {

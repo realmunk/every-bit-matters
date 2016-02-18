@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="css/client.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <script src="socket.io.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -23,29 +23,28 @@
             <div class="valign-wrapper fullheight">
                 <div class="valign">
                     <div class="row">
-                        <div class="col l7 s12 head">
+                        <div class="col l5 s12 head">
                             <div class="">
                                 <h1 class="info">
                                     <div>DOWN <span class="bold" id="download" title="MB/s">0</span>
-                                        <small class="red-text">
+                                        <small class="red-text hide">
                                             <i class="material-icons big">keyboard_arrow_down</i>3
                                         </small>
                                     </div>
                                     <div>UP <span class="bold" id="upload" title="MB/s">0</span> 
-                                        <small class="green-text">
+                                        <small class="green-text hide">
                                             <i class="material-icons big">keyboard_arrow_up</i>5
                                         </small>
                                     </div>
                                     <div>PING <span class="bold" id="ping" title="ms">0</span> 
-                                        <small class="red-text">
-                                            <i class="material-icons big">keyboard_arrow_down</i>20
+                                        <small class="red-text hide">
+                                            <i class="material-icons big">keyboard_arrow_down</i>2
                                         </small>
                                     </div>
                                 </h1>
                             </div>
                         </div>
                         <div class="col l7 history">
-                            <h2 class="hide">History</h2>
                             <div id="graph" class="graph">
 
                             </div>
@@ -54,17 +53,33 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col l12">
+                    <h2 class="thin">STATS</h2>
+                    <div class="stats">
+                        <h3 class="info">
+                            <div>MAX DOWN <span class="bold" id="stat-download" title="MB/s">0</span>
+                            </div>
+                            <div>MAX UP <span class="bold" id="stat-upload" title="MB/s">0</span> 
+                            </div>
+                            <div>MIN PING <span class="bold" id="stat-ping" title="ms">0</span> 
+                            </div>
+                        </h3>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col l12">
-                    <table class="highlight tablesorter" id="history-table">
+                    <h2 class="thin">HISTORIC DATA <small class="thin">(SORTABLE)</small></h2>
+                    <table class="highlight striped tablesorter" id="history-table">
                         <thead>
                             <tr>
-                                <th>Down</th>
-                                <th>Up</th>
-                                <th>Ping</th>
-                                <th>Date</th>
-                                <th>Time</th>
+                                <th title="Sort on this column">Down</th>
+                                <th title="Sort on this column">Up</th>
+                                <th title="Sort on this column">Ping</th>
+                                <th title="Sort on this column">Date</th>
+                                <th title="Sort on this column">Time</th>
                             </tr>
                         </thead>
                         <tbody id="history">

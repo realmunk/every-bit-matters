@@ -13,6 +13,11 @@ io.on('connect', function (socket) {
         console.log("server:results");
         io.emit('client:display', data);
     });
+
+    socket.on('server:last', function (data) {
+        console.log("server:last");
+        io.emit('client:update', data);
+    });
 });
 
 setInterval(function () {
