@@ -28,9 +28,9 @@ socket.on('client:display', function (results) {
 
 
         for(i = 0;i < trlist.length; i++){
-            newtrlist.append(document.createElement("tr"));
-            newtrlist.append(document.createElement("tr"));
-            newtrlist.append(document.createElement("tr"));
+            newtrlist.push(document.createElement("tr"));
+            newtrlist.push(document.createElement("tr"));
+            newtrlist.push(document.createElement("tr"));
 
             if (trlist[i].id == "pi"){
                 newtrlist[i].appendChild(rank);
