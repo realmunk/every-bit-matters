@@ -46,7 +46,7 @@ socket.on('client:display', function (results) {
         if(res == maxD){
             ind = 1;
             column1.textContent = "1";
-            column2.textContent = maxD.score;
+            column2.textContent = maxD.download;
             column3.textContent = maxD.ip;
             column4.textContent = (new Date(maxD.date)).toLocaleString();
 
@@ -54,7 +54,7 @@ socket.on('client:display', function (results) {
         else if(res == maxU){
             ind = 2;
             column1.textContent = "1";
-            column2.textContent = maxU.score;
+            column2.textContent = maxU.upload;
             column3.textContent = maxU.ip;
             column4.textContent = (new Date(maxU.date)).toLocaleString();
 
@@ -62,7 +62,7 @@ socket.on('client:display', function (results) {
         else if(res == minP){
             ind  = 0;
             column1.textContent = "1";
-            column2.textContent = minP.score;
+            column2.textContent = minP.ping;
             column3.textContent = minP.ip;
             column4.textContent = (new Date(minP.date)).toLocaleString();
 
