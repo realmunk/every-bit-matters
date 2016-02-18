@@ -26,7 +26,6 @@ socket.on('client:display', function (results) {
         upload.textContent = result.upload;
         ip.textContent = result.ip;
         // append columns to row
-        console.log(tr.id);
         tr.appendChild(date);
         tr.appendChild(ping);
         tr.appendChild(download);

@@ -12,6 +12,7 @@ socket.on('client:display', function (results) {
     results.forEach(function (result) {
         var trlist = document.getElementsByTagName("tr");
         var tbodylist = document.getElementsByTagName("tbody");
+
         var rank = document.createElement('td');
         var ping = document.createElement('td');
         var download = document.createElement('td');
@@ -27,19 +28,20 @@ socket.on('client:display', function (results) {
 
 
         for(i = 0;i < trlist.length; i++){
+            console.log(trlist[0].id)
             if (trlist[i].id == "pi"){
                 tr.appendChild(rank);
                 tr.appendChild(ping);
                 tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
-            if(trlist[i].id == "down"){
+            else if(trlist[i].id == "down"){
                 tr.appendChild(rank);
                 tr.appendChild(download);
                 tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
-            if(trlist[i].id == "up"){
+            else if(trlist[i].id == "up"){
                 tr.appendChild(rank);
                 tr.appendChild(upload);
                 tr.appendChild(ip);
