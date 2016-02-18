@@ -107,19 +107,22 @@ function init(data){
             name: 'Download',
             data: download_series,
             color: '#F81810',
+            zindex: 2,
         }, {
             name: 'Upload',
             data: upload_series,
             color: '#F8D010',
             lineWidth: '1px',
             dashStyle: 'ShortDash',
+
+            zindex: 2,
         }, {
             name: 'Ping',
             type: 'column',
             data: ping_series,
             yAxis: 1,
-            zindex: '-1',
-            pointWidth: '1px'
+            zindex: 1,
+            pointWidth: 1,
         }]
     });
 
