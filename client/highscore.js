@@ -34,69 +34,53 @@ socket.on('client:display', function (results) {
     var maxD = getMax(results, "download");
     var maxU = getMax(results, "upload");
     var minP = getMin(results, "ping");
-    console.log(maxD);
-    console.log(maxU);
-    console.log(minP);
 
     var pingtr = document.createElement("tr");
     var downloadtr = document.createElement("tr");
     var uploadtr = document.createElement("tr");
 
-    function addToCorrectHighscore(){
+    function addToCorrectHighscore(res){
+        var column1 = document.createElement("td")
+        var column2 = document.createElement("td");
+        var column3 = document.createElement("td");
+        var column4 = document.createElement("td");
+        var ind = 0;
 
+        if(res == maxD){
+            ind = 1;
+            column1.textContent = "1";
+            column2.textContent = maxD.score;
+            column3.textContent = maxD.ip;
+            column4.textContent = (new Date(maxD.date)).toLocaleString();
+
+        }
+        else if(res == maxU){
+            ind = 2
+            column1.textContent = "1";
+            column2.textContent = maxU.score;
+            column3.textContent = maxU.ip;
+            column4.textContent = (new Date(maxU.date)).toLocaleString();
+
+        }
+        else if(res == minP){
+            ind  = 0;
+            column1.textContent = "1";
+            column2.textContent = minP.score;
+            column3.textContent = minP.ip;
+            column4.textContent = (new Date(minP.date)).toLocaleString();
+
+        }
+
+        tr[ind].appendChild(column1);
+        tr[ind].appendChild(column2);
+        tr[ind].appendChild(column3);
+        tr[ind].appendChild(column4)
+        tbody[ind].appendChild(tr);
     }
 
-    for(i = 0; i < tr.length; i++){
-        var rank = document.createElement("td")
-        var date = document.createElement("td");
-        var ping = document.createElement("td");
-        var download = document.createElement("td");
-        var upload = document.createElement("td");
-        var ip = document.createElement("td");
-        if(i == 0){
-            rank.textContent = "1";
-            ip.textContent = minP.ip;
-            date.textContent = (new Date(minP.date)).toLocaleString();
-            ping.textContent = minP.ping;
-
-            tr[i].appendChild(rank);
-            tr[i].appendChild(ping);
-            tr[i].appendChild(ip);
-            tr[i].appendChild(date);
-
-            tbody[i].appendChild(tr[i]);
-
-        }
-        else if(i == 1){
-            rank.textContent = "1";
-            ip.textContent = maxD.ip;
-            date.textContent = (new Date(maxD.date)).toLocaleString();
-            download.textContent = maxD.download;
-
-            tr[i].appendChild(rank);
-            tr[i].appendChild(download);
-            tr[i].appendChild(ip);
-            tr[i].appendChild(date);
-
-            tbody[i].appendChild(tr[i]);
-
-        }
-        else if(i == 2){
-            rank.textContent = "1";
-            ip.textContent = maxU.ip;
-            date.textContent = (new Date(maxU.date)).toLocaleString();
-            upload.textContent = maxU.upload;
-
-            tr[i].appendChild(rank);
-            tr[i].appendChild(upload);
-            tr[i].appendChild(ip);
-            tr[i].appendChild(date);
-
-            tbody[i].appendChild(tr[i]);
-
-        }
-
-    }
+    addToCorrectHighscore(maxD);
+    addToCorrectHighscore(maxU);
+    addToCorrectHighscore(minP);
     
 
 });
