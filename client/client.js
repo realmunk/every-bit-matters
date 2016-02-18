@@ -17,6 +17,7 @@ socket.on('client:display', function (results) {
         var ping = document.createElement('td');
         var download = document.createElement('td');
         var upload = document.createElement('td');
+        var ip = document.createElement('td');
         // add content to columns
         date.textContent = (new Date(result.date)).toLocaleString();
         ping.textContent = result.ping;
@@ -27,6 +28,7 @@ socket.on('client:display', function (results) {
         tr.appendChild(ping);
         tr.appendChild(download);
         tr.appendChild(upload);
+        tr.appendChild(ip)
         // append row to tbody
         tbody.appendChild(tr);
     });
