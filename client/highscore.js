@@ -28,23 +28,24 @@ socket.on('client:display', function (results) {
 
         for(i = 0;i < trlist.length; i++){
             if (trlist[i].id == "pi"){
-                trlist[i].appendChild(rank);
-                trlist[i].appendChild(ping);
-                trlist[i].appendChild(ip);
+                tr.appendChild(rank);
+                tr.appendChild(ping);
+                tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
             else if(trlist[i].id == "down"){
-                trlist[i].appendChild(rank);
-                trlist[i].appendChild(download);
-                trlist[i].appendChild(ip);
+                tr.appendChild(rank);
+                tr.appendChild(download);
+                tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
             else if(trlist[i].id == "up"){
-                trlist[i].appendChild(rank);
-                trlist[i].appendChild(upload);
-                trlist[i].appendChild(ip);
+                tr.appendChild(rank);
+                tr.appendChild(upload);
+                tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             };
         };
     });
+
 });
