@@ -43,7 +43,6 @@ socket.on('client:display', function (results) {
         tr.appendChild(download);
         tr.appendChild(upload);
         tr.appendChild(ip)
-        tr.appendChild(device);
         // append row to tbody
         tbody.appendChild(tr);
     });
