@@ -2,8 +2,6 @@
   "name": "every-bit-matters",
   "version": "1.0.0",
   "engines": {
-    "node": "5.5.0",
-    "npm": "3.5.3"
   },
   "description": "Workshop providing an introduction to web-architecture through a step-by-step tutorial on how to make a full-stack web application with WebSockets. The domain is speedtesting – where Every Bit Matters.",
   "main": "web.js",
@@ -29,10 +27,7 @@
   "dependencies": {
     "d3": "^3.5.14",
     "express": "^4.13.4",
-    "node-gyp": "^3.3.0",
-    "robotjs": "^0.3.6",
     "socket.io": "^1.4.5",
     "socket.io-client": "^1.4.5",
-    "speedtest-net": "^1.2.4"
   }
 }

@@ -1,6 +1,4 @@
-var speedtest = require('speedtest-net');
 var fileSystem = require('fs');
-var robot = require("robotjs");
 
 var fileName = __dirname + '/history.json';
 var history = JSON.parse(fileSystem.readFileSync(fileName));
@@ -14,9 +12,6 @@ socket.on('logger:history', function () {
 });
 
 socket.on('logger:run', function () {
-    var mouse=robot.getMousePos();
-    console.log("Mouse is at x:" + mouse.x + " y:" + mouse.y);
-    var pos = [mouse.x, mouse.y];
 
     socket.emit('server:result', pos);
 });
