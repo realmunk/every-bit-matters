@@ -22,7 +22,8 @@ socket.on('logger:run', function () {
             download: data.speeds.download,
             upload: data.speeds.upload,
             ping: data.server.ping,
-            date: Date.now()
+            date: Date.now(),
+            line: "\n"
         };
 
         history.push(result);
