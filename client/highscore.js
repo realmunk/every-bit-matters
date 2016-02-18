@@ -10,47 +10,10 @@ socket.on('client:display', function (results) {
     tbody.innerHTML = '';
 
     results.forEach(function (result) {
-        var trlist = document.getElementsByTagName("tr");
-        var tbodylist = document.getElementsByTagName("tbody");
-        var newtrlist = [];
 
-        var rank = document.createElement('td');
-        var ping = document.createElement('td');
-        var download = document.createElement('td');
-        var upload = document.createElement('td');
-        var ip = document.createElement('td');
-        rank.textContent = "1";
-        ping.textContent = result.ping;
-        download.textContent = result.download;
-        upload.textContent = result.upload;
-        ip.textContent = result.ip;
+        var tr = document.createElement("tr");
+        var date = document.createElement("td");
 
-
-
-        for(i = 0;i < trlist.length; i++){
-            newtrlist.push(document.createElement("tr"));
-            newtrlist.push(document.createElement("tr"));
-            newtrlist.push(document.createElement("tr"));
-
-            if (trlist[i].id == "pi"){
-                newtrlist[i].appendChild(rank);
-                newtrlist[i].appendChild(ping);
-                newtrlist[i].appendChild(ip);
-                tbodylist[i].appendChild(newtrlist[0])
-            }
-            else if(trlist[i].id == "down"){
-                newtrlist[i].appendChild(rank);
-                newtrlist[i].appendChild(download);
-                newtrlist[i].appendChild(ip);
-                tbodylist[i].appendChild(newtrlist[0])
-            }
-            else if(trlist[i].id == "up"){
-                newtrlist[i].appendChild(rank);
-                tnewtrlist[i].appendChild(upload);
-                newtrlist[i].appendChild(ip);
-                tbodylist[i].appendChild(newtrlist[0])
-            };
-        };
     });
 
 });
