@@ -23,5 +23,5 @@ app.use('/', express.static('client'));
 app.use('/', express.static('node_modules/d3'));
 
 http.listen(port, function () {
-    console.log('Running our app at http://localhost:3000')
+    console.log('Running our app at http://localhost:'+port)
 });
