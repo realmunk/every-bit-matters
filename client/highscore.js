@@ -14,6 +14,7 @@ socket.on('client:display', function (results) {
         // add table row
         var tr = document.createElement('tr');
         // add columns
+        var date = document.createElement("tr");
         var rank = document.createElement('td');
         var ping = document.createElement('td');
         var download = document.createElement('td');
