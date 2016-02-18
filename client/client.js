@@ -102,12 +102,12 @@ socket.on('client:display', function (data) {
         init(data);
         first = false;
     }else{
+
         $('#history').prepend(itemToRow(last));
         $("#history-table").trigger("update"); 
-
         var shift = chart.series[0].data.length > 30;
-        chart.series[0].addPoint([last.date, last.download], true, shift);
-        chart.series[1].addPoint([last.date, last.upload], true, shift);
+        chart.series[0].addPoint([last.date, last.download], true, true);
+        chart.series[1].addPoint([last.date, last.upload], true, true);
 
     }
 
