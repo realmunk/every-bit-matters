@@ -3,14 +3,14 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
-var interval = process.env.TIME_INTERVAL || 10000;
+var interval = process.env.TIME_INTERVAL || 200;
 
 io.on('connect', function (socket) {
     console.log('Looksies! We got ourselves a user!');
     io.emit('logger:history');
 
-    socket.on('server:results', function (data) {
-        console.log("server:results");
+    socket.on('server:result', function (data) {
+        console.log("server:result");
         io.emit('client:display', data);
     });
 });

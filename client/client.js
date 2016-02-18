@@ -2,33 +2,20 @@ var socket = io();
 
 socket.on('connect', function (data) {
     console.log("I am connected");
+    var canvas = document.createElement("canvas");
+    canvas.id = 'canvas';
+    canvas.setAttribute("width", screen.availWidth);
+    canvas.setAttribute("height", screen.availHeight);
+    canvas.setAttribute("style", "position: relative; x:0; y:0;");
+    document.body.appendChild(canvas);
 });
 
 socket.on('client:display', function (results) {
-
-    var tbody = document.getElementsByTagName('tbody')[0];
-    tbody.innerHTML = '';
-
-    results.forEach(function (result) {
-        // add table row
-        var tr = document.createElement('tr');
-        // add columns
-        var date = document.createElement('td');
-        var ping = document.createElement('td');
-        var download = document.createElement('td');
-        var upload = document.createElement('td');
-        // add content to columns
-        date.innerText = (new Date(result.date)).toLocaleString();
-        ping.innerText = result.ping;
-        download.innerText = result.download;
-        upload.innerText = result.upload;
-        // append columns to row
-        tr.appendChild(date);
-        tr.appendChild(ping);
-        tr.appendChild(download);
-        tr.appendChild(upload);
-        // append row to tbody
-        tbody.appendChild(tr);
-    });
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var y = results[1] - 200
+    ctx.fillRect(results[0],y,10,10);
+    console.log(results[0])
 
 });
