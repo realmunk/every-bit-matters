@@ -24,7 +24,7 @@ socket.on('logger:run', function () {
             ping: data.server.ping,
             date: Date.now(),
             ip: data.client.ip,
-            device: data.client.device
+            device: data.client.id
         };
 
         history.push(result);
