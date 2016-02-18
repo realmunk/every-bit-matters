@@ -7,7 +7,7 @@ var max_dl = 0;
 var max_ul = 0;
 var min_ping = 999999;
 
-var max_display_len = 10000;
+var max_display_len = 200;
 var point_threshold = 500;
 
 socket.on('connect', function (data) {
