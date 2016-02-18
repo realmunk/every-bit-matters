@@ -10,6 +10,7 @@ socket.on('client:display', function (results) {
     tbody.innerHTML = '';
 
     results.forEach(function (result) {
+
         // add table row
         var tr = document.createElement('tr');
         // add columns
