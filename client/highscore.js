@@ -33,13 +33,13 @@ socket.on('client:display', function (results) {
                 tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
-            else if(trlist[i].id == "down"){
+            if(trlist[i].id == "down"){
                 tr.appendChild(rank);
                 tr.appendChild(download);
                 tr.appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
-            else if(trlist[i].id == "up"){
+            if(trlist[i].id == "up"){
                 tr.appendChild(rank);
                 tr.appendChild(upload);
                 tr.appendChild(ip);
