@@ -7,7 +7,7 @@ socket.on('connect', function (data) {
 socket.on('client:display', function (results) {
 
     var tbody = document.getElementsByTagName('tbody');
-    for(i = 1; i < tbody.length; i++){
+    for(i = 0; i < tbody.length; i++){
         console.log(document.getElementsByTagName("tbody")[i]);
         tbody[i].innerHTML = '';
     }
@@ -36,10 +36,6 @@ socket.on('client:display', function (results) {
     var maxU = getMax(results, "upload");
     var minP = getMin(results, "ping");
 
-    var pingtr = document.createElement("tr");
-    var downloadtr = document.createElement("tr");
-    var uploadtr = document.createElement("tr");
-
     function addToCorrectHighscore(res){
         var column1 = document.createElement("td")
         var column2 = document.createElement("td");
@@ -56,7 +52,7 @@ socket.on('client:display', function (results) {
 
         }
         else if(res == maxU){
-            ind = 2
+            ind = 2;
             column1.textContent = "1";
             column2.textContent = maxU.score;
             column3.textContent = maxU.ip;
