@@ -27,7 +27,7 @@
     "d3": "^3.5.14",
     "express": "^4.13.4",
     "node-gyp": "^3.3.0",
-    "robotjs": "^0.3.7",
+    "osx-mouse": "^1.2.0",
     "socket.io": "^1.4.5",
     "socket.io-client": "^1.4.5"
   }
