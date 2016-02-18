@@ -2,6 +2,7 @@ var socket = io();
 
 socket.on('connect', function (data) {
     console.log("I am connected");
+    console.log(document.getElementsByTagName("tr")[0].id)
 });
 
 socket.on('client:display', function (results) {
