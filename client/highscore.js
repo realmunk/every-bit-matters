@@ -22,10 +22,11 @@ socket.on('client:display', function (results) {
         download.textContent = result.download;
         upload.textContent = result.upload;
         ip.textContent = result.ip;
+        var tr = document.createElement('tr');
+
 
 
         for(i = 0;i < trlist.length; i++){
-            var tr = document.createElement('tr');
             if (trlist[i].id == "pi"){
                 trlist[i].appendChild(rank);
                 trlist[i].appendChild(ping);
