@@ -10,18 +10,6 @@ socket.on('client:display', function (results) {
     var tbody = document.getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
 
-    function getMax(arr, prop) {
-        var max;
-        for (var i=0 ; i<arr.length ; i++) {
-            if (!max || parseInt(arr[i][prop]) > parseInt(max[prop]))
-                max = arr[i];
-        };
-        return max;
-    };
-
-    var maxDownload = getMax(results, "download");
-    console.log(maxDownload);
-
     results.forEach(function (result) {
         // add table row
         var tr = document.createElement('tr');
