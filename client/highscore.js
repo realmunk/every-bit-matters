@@ -12,6 +12,7 @@ socket.on('client:display', function (results) {
     results.forEach(function (result) {
         var trlist = document.getElementsByTagName("tr");
         var tbodylist = document.getElementsByTagName("tbody");
+        var newtrlist = [];
 
         var rank = document.createElement('td');
         var ping = document.createElement('td');
@@ -23,28 +24,30 @@ socket.on('client:display', function (results) {
         download.textContent = result.download;
         upload.textContent = result.upload;
         ip.textContent = result.ip;
-        var tr = document.createElement('tr');
 
 
 
         for(i = 0;i < trlist.length; i++){
-            console.log(trlist[0].id)
+            newtrlist.append(document.createElement("tr"));
+            newtrlist.append(document.createElement("tr"));
+            newtrlist.append(document.createElement("tr"));
+
             if (trlist[i].id == "pi"){
-                tr.appendChild(rank);
-                tr.appendChild(ping);
-                tr.appendChild(ip);
+                newtrlist[i].appendChild(rank);
+                newtrlist[i].appendChild(ping);
+                newtrlist[i].appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
             else if(trlist[i].id == "down"){
-                tr.appendChild(rank);
-                tr.appendChild(download);
-                tr.appendChild(ip);
+                newtrlist[i].appendChild(rank);
+                newtrlist[i].appendChild(download);
+                newtrlist[i].appendChild(ip);
                 tbodylist[i].appendChild(tr)
             }
             else if(trlist[i].id == "up"){
-                tr.appendChild(rank);
-                tr.appendChild(upload);
-                tr.appendChild(ip);
+                newtrlist[i].appendChild(rank);
+                tnewtrlist[i].appendChild(upload);
+                newtrlist[i].appendChild(ip);
                 tbodylist[i].appendChild(tr)
             };
         };
