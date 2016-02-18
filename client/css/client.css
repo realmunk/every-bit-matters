@@ -9,6 +9,8 @@ body {
 }
 
 .highscore{
+    max-width: 600px;
+    margin: 0 auto;
     width: 33%;
     float: left;
     border-bottom-color: #111111;
