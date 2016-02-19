@@ -197,6 +197,8 @@ socket.on('client:update', function (data) {
     //Update table
     $('#history').prepend(itemToRow(data));
     $("#history-table").trigger("update");
+    $("#flame").show();
+    $(".offline").hide();
 
     //Update graph
     var shift = chart.series[0].data.length > max_display_len;

@@ -68,8 +68,8 @@ var fireConfig = {
     max: Math.PI
   },
   speed: {
-    min: 20,
-    max: 80
+    min: 200,
+    max: 300
   }
 };
 

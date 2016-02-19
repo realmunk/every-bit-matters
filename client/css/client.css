@@ -60,9 +60,18 @@ h1, h2, h3, h4, h5 {
     cursor: pointer;
 }
 
+.flame-container{
+    height: 50%;
+}
+
+.offline{
+    opacity: 0.5;
+}
+
 #flame {
     height: 50%;
     min-height: 200px;
+    display: none;
 }
 
 #ping{
