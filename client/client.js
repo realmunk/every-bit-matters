@@ -11,11 +11,11 @@ socket.on('connect', function (data) {
 });
 
 socket.on('client:display', function (results) {
+
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (var key in results){
-        console.log(results[key][0] + '-' + results[key][1]);
         var y = results[key][1] - 200;
         var x = results[key][0];
         var img= new Image();
