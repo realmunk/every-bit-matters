@@ -32,7 +32,7 @@ A screenshot of the speed test visualization
 
 ## Getting started
 * Switch to branch 'master'
-* Install npm packages (same as forked project): npm install .
+* Install npm packages (same as forked project): ```npm install .```
 * Run ```npm logger/logger.js``` and ```npm start```
 * Navigate to ```http://localhost:3000```
 * Wait for logger data if you have none
