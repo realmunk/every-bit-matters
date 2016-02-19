@@ -6,7 +6,7 @@ Blazing fast speed-tests
 By Nicolas Almagro Tonne - me@nixo.no - BiT - NTNU
 
 ![ScreenShot](https://raw.githubusercontent.com/nixolas1/every-bit-matters/main/screen2.png)
-A screenshot of how the speed test visualization
+A screenshot of the speed test visualization
 
 ## New Features
 * Current/latest speed displayed separately
