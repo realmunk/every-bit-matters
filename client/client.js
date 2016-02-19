@@ -6,6 +6,7 @@ var ping_series = [];
 var max_dl = 0;
 var max_ul = 0;
 var min_ping = 999999;
+var first = true;
 
 var max_display_len = 500;
 var point_threshold = 500;
@@ -119,6 +120,7 @@ function init(data){
         chart.yAxis[0].update({visible: false});
         chart.yAxis[1].update({visible: false});
     });
+
 }
 
 function injectData(data){
@@ -138,11 +140,11 @@ function checkHighscore(dl, ul, ping){
         max_dl = dl;
         $("#stat-download").text(Math.floor(dl));
     }
-    if(dl > max_ul){
+    if(ul > max_ul){
         max_ul = ul;
         $("#stat-upload").text(Math.floor(ul));
     }
-    if(dl < min_ping){
+    if(ping < min_ping){
         min_ping = ping;
         $("#stat-ping").text(Math.floor(ping));
     }
@@ -166,6 +168,13 @@ function animateValueChange(element, value){
     });
 }
 
+function initVisualization(){
+    $("#flame").show();
+    $(".offline").hide();
+    resizeCanvas();
+    requestAnimationFrame(update);
+}
+
 /* TODO
 
 countdown til next scan/progress of current scan
@@ -185,6 +194,7 @@ socket.on('client:display', function (data) {
     } else {
         console.log("Empty history data. Waiting for next update.");
     }
+
 });
 
 
@@ -197,8 +207,6 @@ socket.on('client:update', function (data) {
     //Update table
     $('#history').prepend(itemToRow(data));
     $("#history-table").trigger("update");
-    $("#flame").show();
-    $(".offline").hide();
 
     //Update graph
     var shift = chart.series[0].data.length > max_display_len;
@@ -206,6 +214,15 @@ socket.on('client:update', function (data) {
 
     //Update stats
     checkHighscore(data.download, data.upload, data.ping);
+
+    //Make visualization correspond to new data (function defined in flame.js)
+    updateVisualizationFromData(data.download, data.upload, data.ping);
+
+    //First time we got live data; hide offline warning
+    if(first){
+        first = false;
+        initVisualization();
+    }
 
     console.log("Got new speed", data);
 });

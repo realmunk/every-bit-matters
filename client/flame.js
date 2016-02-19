@@ -1,111 +1,44 @@
-// Forked from http://codepen.io/davidhartley/pen/jbOOed by David Hartleu
-// Modified by nixolas1 - 2016
-
-var sizeMult = 2;
-var speedDL = 1;
-var speedUL = 1.3;
-
-/*
-
-in:
-    dl speed 0-100
-    ul speed 0-100
-    ping 0-1000
-
-out:
-    speed 40-800
-    lifespan 100-4000
-    maxparticles: 5-600
-
-
-visu:
-    dl/ul:
-        speed:
-            min=speed-speed/10)* out speed range
-            max=speed+speed/10)* out speed range
-
-        lifespan:
-            related to speed:
-                less speed = longer lifespan
-                100 if max speed
-                4000 if min speed
-
-        maxparticles:
-            depends (loosely) on ping
-            higher ping = less particles
-
-    Make dl come in from outside towards center, and upload out?
-
+/*  Forked from http://codepen.io/davidhartley/pen/jbOOed by David Hartleu
+    Modified by nixolas1 - 2016
+    Converted to dynamic particle emitter based on network data.
 */
 
+var sizeMult = 1;
+var speedDL = 1;
+var speedUL = 1.3;
+var randomSpreadDivider = 1.7;
 
-var fireConfig = {
-  maxParticles: 200,
-  spawnDelay: 10,
-  lifeSpan: {
-    min: 1000,
-    max: 1800
-  },
+
+var dlConfig = {
+  maxParticles: 500,
+  spawnDelay: 30,
+  lifeSpan: 2000,
   alpha: {
     min: 1.0,
     max: 1.0
   },
   alphaDecay: {
-    min: 0.0,
-    max: 0.8
+    min: 0.8,
+    max: 1.0
   },
   colour: ["#F81810", "#6D0703"],
-  radius: {
-    min: 10*sizeMult,
-    max: 40*sizeMult
-  },
-  radiusDecay: {
-    min: 5,
-    max: 10
-  },
-  direction: {
-    min: -Math.PI,
-    max: Math.PI
-  },
-  speed: {
-    min: 200,
-    max: 300
-  }
-};
-
-var smokeConfig = {
-  maxParticles: 50,
-  spawnDelay: 150,
-  lifeSpan: {
-    min: 6000,
-    max: 10000
-  },
-  alpha: {
-    min: 0.7,
-    max: 0.9
-  },
-  alphaDecay: {
-    min: 0,
-    max: 0.2
-  },
-  colour: ["#F8D010", "#00A1FF"],
   radius: {
     min: 20*sizeMult,
     max: 40*sizeMult
   },
   radiusDecay: {
-    min: 0,
-    max: 5
+    min: 10,
+    max: 20
   },
   direction: {
     min: -Math.PI,
     max: Math.PI
   },
-  speed: {
-    min: 50,
-    max: 100
-  }
+  speed: 100
 };
+
+var ulConfig = $.extend( {}, dlConfig );
+ulConfig.colour = ["#F8D010", "#F8D010", "#F8D010", "#00A1FF"];
 
 var can = document.querySelector("canvas"),
     ctx = can.getContext("2d"),
@@ -113,55 +46,93 @@ var can = document.querySelector("canvas"),
       x: window.innerWidth / 3,
       y: window.innerHeight / 3
     },
-    fireParticles = [],
-    smokeParticles = [];
+    downloadParticles = [],
+    uploadParticles = [];
 
-window.addEventListener("resize", resize);
-/*document.body.addEventListener("mousemove", mouseMove);
-document.body.addEventListener("touchmove", touchMove);
-document.body.addEventListener("mouseout", mouseOut);
-document.body.addEventListener("touchend", mouseOut);*/
-resize();
-requestAnimationFrame(update);
+window.addEventListener("resize", resizeCanvas);
+//resizeCanvas();
 
-function createFireParticle() {
-  var p = {
-    lifeSpan: getRandom(fireConfig.lifeSpan),
-    life: 0,
-    alpha: getRandom(fireConfig.alpha),
-    alphaDecay: getRandom(fireConfig.alphaDecay),
-    colour: getColour(fireConfig.colour),
-    x: mouse.x,
-    y: mouse.y,
-    radius: getRandom(fireConfig.radius),
-    radiusDecay: getRandom(fireConfig.radiusDecay),
-    direction: getRandom(fireConfig.direction)*speedDL,
-    speed: getRandom(fireConfig.speed)*speedDL
-  };
-  
-  fireParticles.push(p);
+
+function updateVisualizationFromData(dl, ul, ping){
+
+    //Speed (correlates with network speed)
+    var minSpeed = 40;
+    var maxSpeed = 900;
+    var speedMult = 7.5; 
+
+    var dlSpeed = Math.min(dl * speedMult + minSpeed, maxSpeed);
+    var ulSpeed = Math.min(ul * speedMult + minSpeed, maxSpeed);
+
+    //Lifespan (inverse correlation with speed)
+    var minLife = 300;
+    var maxLife = 5000;
+    var lifeMult = 1.2;
+
+    var dlLife = Math.max(maxLife - (maxLife / maxSpeed) * dlSpeed * lifeMult, minLife);
+    var ulLife = Math.max(maxLife - (maxLife / maxSpeed) * ulSpeed * lifeMult, minLife);
+
+    //TODO: change alpha and radius decay as well
+
+    //Particle frequency (directly correlates with ping)
+    var minFreq = 1;
+    var particleFreq = Math.max(ping, minFreq);
+
+
+
+    //Store values
+    dlConfig.speed = dlSpeed;
+    ulConfig.speed = ulSpeed;
+
+    dlConfig.lifeSpan = dlLife;
+    ulConfig.lifeSpan = ulLife;
+
+    dlConfig.spawnDelay = particleFreq;
+    ulConfig.spawnDelay = particleFreq;
+
 }
 
-function createSmokeParticle() {
+function createDownloadParticle() {
   var p = {
-    lifeSpan: getRandom(smokeConfig.lifeSpan),
+    lifeSpan: getRandomSpread(dlConfig.lifeSpan),
     life: 0,
-    alpha: getRandom(smokeConfig.alpha),
-    alphaDecay: getRandom(smokeConfig.alphaDecay),
-    colour: getColour(smokeConfig.colour),
+    alpha: getRandom(dlConfig.alpha),
+    alphaDecay: getRandom(dlConfig.alphaDecay),
+    colour: getColour(dlConfig.colour),
     x: mouse.x,
-    y: mouse.y - 20,
-    radius: getRandom(smokeConfig.radius),
-    radiusDecay: getRandom(smokeConfig.radiusDecay),
-    direction: getRandom(smokeConfig.direction)*speedUL,
-    speed: getRandom(smokeConfig.speed)*speedUL
+    y: mouse.y,
+    radius: getRandom(dlConfig.radius),
+    radiusDecay: getRandom(dlConfig.radiusDecay),
+    direction: getRandom(dlConfig.direction),
+    speed: getRandomSpread(dlConfig.speed)
   };
   
-  smokeParticles.push(p);
+  downloadParticles.push(p);
+}
+
+function createUploadParticle() {
+  var p = {
+    lifeSpan: getRandomSpread(ulConfig.lifeSpan),
+    life: 0,
+    alpha: getRandom(ulConfig.alpha),
+    alphaDecay: getRandom(ulConfig.alphaDecay),
+    colour: getColour(ulConfig.colour),
+    x: mouse.x,
+    y: mouse.y - 20,
+    radius: getRandom(ulConfig.radius),
+    radiusDecay: getRandom(ulConfig.radiusDecay),
+    direction: getRandom(ulConfig.direction),
+    speed: getRandomSpread(ulConfig.speed)
+  };
+  
+  uploadParticles.push(p);
 }
 
 function getRandom(o) {
   return Math.random() * (o.max - o.min) + o.min;
+}
+
+function getRandomSpread(i) {
+    return Math.random() * (i/randomSpreadDivider) + i/randomSpreadDivider;
 }
 
 function getColour(a) {
@@ -170,14 +141,14 @@ function getColour(a) {
 
 var lastTime = null,
     delta = 0,
-    fireSpawnTimer = 0,
-    smokeSpawnTimer = 0;
+    downloadSpawnTimer = 0,
+    uploadSpawnTimer = 0;
 function update(timestamp) {
   if (lastTime === null) lastTime = timestamp;
   delta = timestamp - lastTime;
   lastTime = timestamp;
-  fireSpawnTimer += delta;
-  smokeSpawnTimer += delta;
+  downloadSpawnTimer += delta;
+  uploadSpawnTimer += delta;
   
   ctx.globalCompositeOperation = "source-over";
   ctx.fillStyle = "white";
@@ -185,24 +156,24 @@ function update(timestamp) {
   ctx.fillRect(0, 0, can.width, can.height);
   
   var p;
-  for (var i=fireParticles.length-1; i>=0; i--) {
-    p = fireParticles[i];
+  for (var i=downloadParticles.length-1; i>=0; i--) {
+    p = downloadParticles[i];
     
     p.life += delta;
     if (p.life >= p.lifeSpan) {
-      fireParticles.splice(i, 1);
+      downloadParticles.splice(i, 1);
       continue;
     }
     
     p.alpha -= p.alphaDecay * delta / 1000;
     if (p.alpha <= 0) {
-      fireParticles.splice(i, 1);
+      downloadParticles.splice(i, 1);
       continue;
     }
     
     p.radius -= p.radiusDecay * delta / 1000;
     if (p.radius <= 0) {
-      fireParticles.splice(i, 1);
+      downloadParticles.splice(i, 1);
       continue;
     }
     
@@ -210,24 +181,24 @@ function update(timestamp) {
     p.y += p.speed * Math.sin(p.direction) * delta / 1000;
   }
   
-  for (var i=smokeParticles.length-1; i>=0; i--) {
-    p = smokeParticles[i];
+  for (var i=uploadParticles.length-1; i>=0; i--) {
+    p = uploadParticles[i];
     
     p.life += delta;
     if (p.life >= p.lifeSpan) {
-      smokeParticles.splice(i, 1);
+      uploadParticles.splice(i, 1);
       continue;
     }
     
     p.alpha -= p.alphaDecay * delta / 1000;
     if (p.alpha <= 0) {
-      smokeParticles.splice(i, 1);
+      uploadParticles.splice(i, 1);
       continue;
     }
     
     p.radius -= p.radiusDecay * delta / 1000;
     if (p.radius <= 0) {
-      smokeParticles.splice(i, 1);
+      uploadParticles.splice(i, 1);
       continue;
     }
     
@@ -235,26 +206,26 @@ function update(timestamp) {
     p.y += p.speed * Math.sin(p.direction) * delta / 1000;
   }
   
-  if (fireParticles.length < fireConfig.maxParticles && fireSpawnTimer >= fireConfig.spawnDelay) {
-    createFireParticle();
-    fireSpawnTimer -= fireConfig.spawnDelay;
+  if (downloadParticles.length < dlConfig.maxParticles && downloadSpawnTimer >= dlConfig.spawnDelay) {
+    createDownloadParticle();
+    downloadSpawnTimer -= dlConfig.spawnDelay;
   }
   
-  if (smokeParticles.length < smokeConfig.maxParticles && smokeSpawnTimer >= smokeConfig.spawnDelay) {
-    createSmokeParticle();
-    smokeSpawnTimer -= smokeConfig.spawnDelay;
+  if (uploadParticles.length < ulConfig.maxParticles && uploadSpawnTimer >= ulConfig.spawnDelay) {
+    createUploadParticle();
+    uploadSpawnTimer -= ulConfig.spawnDelay;
   }
   
-  for (var i=0; i<smokeParticles.length; i++) {
-    p = smokeParticles[i];
+  for (var i=0; i<uploadParticles.length; i++) {
+    p = uploadParticles[i];
     ctx.fillStyle = p.colour;
     ctx.globalAlpha = p.alpha;
     ctx.fillRect(p.x, p.y, p.radius, p.radius);
   }
   
   ctx.globalCompositeOperation = "hard-light";
-  for (var i=0; i<fireParticles.length; i++) {
-    p = fireParticles[i];
+  for (var i=0; i<downloadParticles.length; i++) {
+    p = downloadParticles[i];
     ctx.fillStyle = p.colour;
     ctx.globalAlpha = p.alpha;
     ctx.fillRect(p.x, p.y, p.radius, p.radius);
@@ -264,13 +235,13 @@ function update(timestamp) {
   ctx.globalAlpha = 1;
   ctx.globalCompositeOperation = "source-over";
 
-  ctx.fillRect(mouse.x, mouse.y, fireConfig.radius.max, fireConfig.radius.max);
+  ctx.fillRect(mouse.x, mouse.y, dlConfig.radius.max, dlConfig.radius.max);
   requestAnimationFrame(update);
 }
 
-function resize() {
-  can.width = window.innerWidth;
-  can.height = window.innerHeight;
-  mouse.x = window.innerWidth / 3;
-  mouse.y = window.innerHeight / 2;
+function resizeCanvas() {
+  can.width = $("#flame").width();
+  can.height = $("#flame").height();
+  mouse.x = $("#flame").width() / 2;
+  mouse.y = $("#flame").height() / 2;
 }

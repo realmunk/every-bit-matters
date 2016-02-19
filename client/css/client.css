@@ -29,7 +29,8 @@ h1, h2, h3, h4, h5 {
 
 .head .info {
     font-weight: 200;
-    font-size: 12vmin;
+    font-size: 8rem;
+    font-size: 11vmin;
     text-align: right;
 }
 
@@ -69,7 +70,8 @@ h1, h2, h3, h4, h5 {
 }
 
 #flame {
-    height: 50%;
+    height: 100%;
+    width: 100%;
     min-height: 200px;
     display: none;
 }
