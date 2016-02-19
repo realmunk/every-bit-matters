@@ -6,7 +6,7 @@ Blazing fast speed-tests
 By Nicolas Almagro Tonne - me@nixo.no - BiT - NTNU
 
 ![ScreenShot](https://raw.githubusercontent.com/nixolas1/every-bit-matters/main/screen2.png)
-A screenshot of how the speed test visualization
+A screenshot of the speed test visualization
 
 ## New Features
 * Current/latest speed displayed separately
@@ -32,7 +32,7 @@ A screenshot of how the speed test visualization
 
 ## Getting started
 * Switch to branch 'master'
-* Install npm packages (same as forked project): npm install .
+* Install npm packages (same as forked project): ```npm install .```
 * Run ```npm logger/logger.js``` and ```npm start```
 * Navigate to ```http://localhost:3000```
 * Wait for logger data if you have none
