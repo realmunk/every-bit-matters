@@ -4,6 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var interval = process.env.TIME_INTERVAL || 20000;
+var history = [];
 
 io.on('connect', function (socket) {
     console.log('Looksies! We got ourselves a user!');
