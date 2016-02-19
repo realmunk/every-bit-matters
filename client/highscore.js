@@ -37,6 +37,7 @@ socket.on('client:display', function (results) {
     var minP = getMin(results, "ping");
 
     function addToCorrectHighscore(res){
+
         var column1 = document.createElement("td")
         var column2 = document.createElement("td");
         var column3 = document.createElement("td");
@@ -75,9 +76,20 @@ socket.on('client:display', function (results) {
         tbody[ind].appendChild(tr[ind]);
     }
 
-    addToCorrectHighscore(maxD);
-    addToCorrectHighscore(maxU);
-    addToCorrectHighscore(minP);
+    function checkIfScoreHasChanged(){
+        if (results[results.length].download > maxD.download){
+            addToCorrectHighscore(results[results.length])
+        }
+        if (results[results.length].ping > minP.ping){
+            addToCorrectHighscore(results[results.length])
+        }
+        if (results[results.length].upload > maxU.upload){
+            addToCorrectHighscore(results[results.length])
+        }
+
+    };
+
+    checkIfScoreHasChanged();
 
 
 });
