@@ -90,7 +90,7 @@ function init(data){
             data: download_series,
             color: '#F81810',
             zIndex: 2,
-            lineWidth: '1px',
+            lineWidth: '2px',
         }, {
             name: 'Upload',
             data: upload_series,

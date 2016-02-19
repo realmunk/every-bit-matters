@@ -1,4 +1,9 @@
+// Forked from http://codepen.io/davidhartley/pen/jbOOed by David Hartleu
+// Modified by nixolas1 - 2016
+
 var sizeMult = 2;
+var speedDL = 1;
+var speedUL = 1.3;
 
 var fireConfig = {
   maxParticles: 500,
@@ -15,7 +20,7 @@ var fireConfig = {
     min: 0.0,
     max: 0.2
   },
-  colour: ["#F81810", "#6D0703","#F8D010"],
+  colour: ["#F81810", "#6D0703"],
   radius: {
     min: 10*sizeMult,
     max: 40*sizeMult
@@ -25,8 +30,8 @@ var fireConfig = {
     max: 10
   },
   direction: {
-    min: -Math.PI / 2 + 0.3,
-    max: -Math.PI / 2 + 1.3
+    min: -Math.PI,
+    max: Math.PI
   },
   speed: {
     min: 50,
@@ -35,7 +40,7 @@ var fireConfig = {
 };
 
 var smokeConfig = {
-  maxParticles: 5,
+  maxParticles: 50,
   spawnDelay: 150,
   lifeSpan: {
     min: 6000,
@@ -49,7 +54,7 @@ var smokeConfig = {
     min: 0,
     max: 0.2
   },
-  colour: ["#00A1FF"],//["#1A1A1A", "#0A0A0A", "#2B2B2B"],
+  colour: ["#F8D010", "#00A1FF"],//["#1A1A1A", "#0A0A0A", "#2B2B2B"],
   radius: {
     min: 20*sizeMult,
     max: 40*sizeMult
@@ -59,8 +64,8 @@ var smokeConfig = {
     max: 5
   },
   direction: {
-    min: -Math.PI / 2 + 0.3,
-    max: -Math.PI / 2 + 1.6
+    min: -Math.PI,
+    max: Math.PI
   },
   speed: {
     min: 50,
@@ -96,8 +101,8 @@ function createFireParticle() {
     y: mouse.y,
     radius: getRandom(fireConfig.radius),
     radiusDecay: getRandom(fireConfig.radiusDecay),
-    direction: getRandom(fireConfig.direction),
-    speed: getRandom(fireConfig.speed)
+    direction: getRandom(fireConfig.direction)*speedDL,
+    speed: getRandom(fireConfig.speed)*speedDL
   };
   
   fireParticles.push(p);
@@ -114,8 +119,8 @@ function createSmokeParticle() {
     y: mouse.y - 20,
     radius: getRandom(smokeConfig.radius),
     radiusDecay: getRandom(smokeConfig.radiusDecay),
-    direction: getRandom(smokeConfig.direction),
-    speed: getRandom(smokeConfig.speed)
+    direction: getRandom(smokeConfig.direction)*speedUL,
+    speed: getRandom(smokeConfig.speed)*speedUL
   };
   
   smokeParticles.push(p);
@@ -221,7 +226,7 @@ function update(timestamp) {
     ctx.fillRect(p.x, p.y, p.radius, p.radius);
   }
 
-  ctx.fillStyle = "#222";
+  ctx.fillStyle = "#F81810";
   ctx.globalAlpha = 1;
   ctx.globalCompositeOperation = "source-over";
 
@@ -232,6 +237,6 @@ function update(timestamp) {
 function resize() {
   can.width = window.innerWidth;
   can.height = window.innerHeight;
-  mouse.x = window.innerWidth / 3.5;
-  mouse.y = window.innerHeight / 1.35;
+  mouse.x = window.innerWidth / 3;
+  mouse.y = window.innerHeight / 2;
 }
