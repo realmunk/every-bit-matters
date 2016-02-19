@@ -1,9 +1,8 @@
 BL4ZE
 =====
-every-bit-matters competition entry 2016
+Blazing fast speed-tests
 
-Blazing fast speed tests!
-
+###every-bit-matters competition entry 2016
 By Nicolas Almagro Tonne - me@nixo.no - BiT - NTNU
 
 ![ScreenShot](https://raw.githubusercontent.com/nixolas1/every-bit-matters/main/screen2.png)
@@ -15,12 +14,15 @@ A screenshot of how the speed test visualization
  * Updated dynamically
  * Zoomable & pannable
  * Toggle what information to show
+ 
 * Visualization of network speed and latency
  * Upload & download speed separated and visualized by block speed
  * Ping visualized by only spawning a new block every PING milliseconds
+ 
 * Stats
  * Top dl & ul speed
  * Shortest ping time
+ 
 * Sortable table with historic data
 * ???
 
