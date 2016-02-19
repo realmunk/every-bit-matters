@@ -60,3 +60,19 @@ h1, h2, h3, h4, h5 {
     cursor: pointer;
 }
 
+#flame {
+    height: 50%;
+    min-height: 200px;
+}
+
+#ping{
+    color: #00A1FF;
+}
+
+#upload{
+    color: #F8D010;
+}
+
+#download{
+    color: #F81810;
+}

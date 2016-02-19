@@ -7,8 +7,9 @@ var max_dl = 0;
 var max_ul = 0;
 var min_ping = 999999;
 
-var max_display_len = 200;
+var max_display_len = 500;
 var point_threshold = 500;
+var anim_duration = 2000;
 
 socket.on('connect', function (data) {
     console.log("I am connected");
@@ -30,9 +31,7 @@ function itemToRow(item){
 
 //Init all elements
 function init(data){
-
     var tr = '';
-
     var first = Math.max(data.length - max_display_len, 0);
 
     //Process data for table and graph
@@ -50,13 +49,11 @@ function init(data){
         }
 
         checkHighscore(d.download, d.upload, d.ping);
-
     };
 
     //Inject data into table
     $('#history').append(tr);
     $("#history-table").tablesorter();
-
 
     //Create graph with data from speed tests
     chart = new Highcharts.Chart({
@@ -68,15 +65,8 @@ function init(data){
             zindex: '-1',
             panning: true,
             panKey: 'shift',
-            events: {
-                load: function (event){
-                    this;
-                }
-            },
         },
-        title: {
-            text:""
-        },
+        title: { text:"" },
         credits: {
             text: 'Data from SpeedTest.net',
             href: 'http://www.speedtest.net'
@@ -84,45 +74,40 @@ function init(data){
         xAxis: {
             type: 'datetime',
             tickPixelInterval: 150,
-            //min: $(download_series).get(0)[0],
-            //max: $(download_series).get(-1)[0],
         },
         yAxis: [{
-            title: {
-                text: 'MB/s'
-            },
+            title: { text: 'MB/s' },
             visible: false,
             gridLineWidth: 0,
             opposite: true,
-
         }, {
-            title: {
-                text: 'Milliseconds'
-            },
+            title: { text: 'Milliseconds' },
             gridLineWidth: 0,
             visible: false,
-
         }],
         series: [{
             name: 'Download',
             data: download_series,
             color: '#F81810',
             zindex: 2,
+            lineWidth: '1px',
         }, {
             name: 'Upload',
             data: upload_series,
             color: '#F8D010',
             lineWidth: '1px',
             dashStyle: 'ShortDash',
-
             zindex: 2,
         }, {
             name: 'Ping',
             type: 'column',
             data: ping_series,
+            color: "#00A1FF",
             yAxis: 1,
             zindex: 1,
             pointWidth: 1,
+            visible: false,
+
         }]
     });
 
@@ -134,13 +119,12 @@ function init(data){
         chart.yAxis[0].update({visible: false});
         chart.yAxis[1].update({visible: false});
     });
-
 }
 
 function injectData(data){
-    $("#download").text(Math.floor(data.download));
-    $("#upload").text(Math.floor(data.upload));
-    $("#ping").text(Math.floor(data.ping));
+    animateValueChange("#download", data.download);
+    animateValueChange("#upload", data.upload);
+    animateValueChange("#ping", data.ping);
 }
 
 function addPointsToGraph(data, shift){
@@ -164,6 +148,24 @@ function checkHighscore(dl, ul, ping){
     }
 }
 
+function animateValueChange(element, value){
+    var prev = parseInt($(element).text());
+    if(isNaN(prev)) prev = 0;
+
+    //display cool +1 animation
+    if(value > prev){
+
+    } else {
+
+    }
+
+    $(element).prop('Counter', prev).animate({ Counter: value }, {
+        duration: anim_duration,
+        easing: 'swing',
+        step: function (now) { $(element).text(Math.floor(now)); }
+    });
+}
+
 /* TODO
 
 countdown til next scan/progress of current scan
@@ -174,12 +176,13 @@ animate +5 / -3 text besides text, one by one, like hp red-> white, middle->bott
 //get all historical speed test data
 socket.on('client:display', function (data) {
     init(data);
-    if(data.length > 0){
+
+    //make sure there is data to process
+    if(data.length > 0) {
         var last = $(data).get(-1);
         injectData(last);
-        init(data);
-        console.log("Got historic data");
-    }else{
+        console.log("Got historic data", data);
+    } else {
         console.log("Empty history data. Waiting for next update.");
     }
 });
@@ -196,7 +199,7 @@ socket.on('client:update', function (data) {
     $("#history-table").trigger("update");
 
     //Update graph
-    var shift = chart.series[0].data.length > 30;
+    var shift = chart.series[0].data.length > max_display_len;
     addPointsToGraph(data, shift);
 
     //Update stats

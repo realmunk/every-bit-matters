@@ -10,11 +10,14 @@ socket.on('connect', function () {
     console.log('Logger is connected');
 });
 
+
+//Sent all history
 socket.on('logger:history', function () {
     socket.emit('server:results', history);
 });
 
 socket.on('logger:run', function () {
+    //never run more than one instance of the speed test at the same time to ensure consistent results
     if(num_speedtests < 1){
         num_speedtests++;
         tot_speedtests++;
@@ -31,6 +34,8 @@ socket.on('logger:run', function () {
             };
 
             history.push(result);
+
+            //Send newest test results only
             socket.emit('server:last', result);
 
             var jsonResult = JSON.stringify(history);
