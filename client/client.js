@@ -154,13 +154,6 @@ function animateValueChange(element, value){
     var prev = parseInt($(element).text());
     if(isNaN(prev)) prev = 0;
 
-    //display cool +1 animation
-    if(value > prev){
-
-    } else {
-
-    }
-
     $(element).prop('Counter', prev).animate({ Counter: value }, {
         duration: anim_duration,
         easing: 'swing',
@@ -174,13 +167,6 @@ function initVisualization(){
     resizeCanvas();
     requestAnimationFrame(update);
 }
-
-/* TODO
-
-countdown til next scan/progress of current scan
-animate +5 / -3 text besides text, one by one, like hp red-> white, middle->bottom
-
-*/
 
 //get all historical speed test data
 socket.on('client:display', function (data) {
@@ -201,18 +187,18 @@ socket.on('client:display', function (data) {
 //Get latest speed test data only
 socket.on('client:update', function (data) {
     
-    //Update current speed
+    //Update current speed text
     injectData(data);
 
-    //Update table
+    //Update table data
     $('#history').prepend(itemToRow(data));
     $("#history-table").trigger("update");
 
-    //Update graph
+    //Update graph data
     var shift = chart.series[0].data.length > max_display_len;
     addPointsToGraph(data, shift);
 
-    //Update stats
+    //Update stats data
     checkHighscore(data.download, data.upload, data.ping);
 
     //Make visualization correspond to new data (function defined in flame.js)

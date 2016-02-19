@@ -57,7 +57,7 @@ function updateVisualizationFromData(dl, ul, ping){
 
     //Speed (correlates with network speed)
     var minSpeed = 40;
-    var maxSpeed = 900;
+    var maxSpeed = 800;
     var speedMult = 7.5; 
 
     var dlSpeed = Math.min(dl * speedMult + minSpeed, maxSpeed);

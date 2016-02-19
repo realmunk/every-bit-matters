@@ -21,7 +21,7 @@ socket.on('logger:run', function () {
     if(num_speedtests < 1){
         num_speedtests++;
         tot_speedtests++;
-        console.log('Starting speedtest #'+tot_speedtests);
+        console.log('Starting speedtest #'+history.length);
         
         var test = speedtest();
 
@@ -43,7 +43,7 @@ socket.on('logger:run', function () {
                 if (err) {
                     console.log('Something went wrong: ' + err);
                 } else {
-                    console.log('Speedtest finished with '+num_speedtests+' tests running');
+                    console.log('Speedtest finished on '+Date.now());
                 }
             });
             num_speedtests--;
