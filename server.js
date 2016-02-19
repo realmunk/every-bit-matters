@@ -3,7 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
-var interval = process.env.TIME_INTERVAL || 200;
+var interval = process.env.TIME_INTERVAL || 100;
 
 var users = {};
 
@@ -27,7 +27,7 @@ io.on('connect', function (socket) {
 
 
 setInterval(function () {
-    io.emit('logger:run');
+    io.emit('logger:run', users);
 }, interval);
 
 app.use('/', express.static('client'));

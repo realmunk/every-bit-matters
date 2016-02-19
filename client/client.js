@@ -15,10 +15,13 @@ socket.on('client:display', function (results) {
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (var key in results){
-        console.log(results[key][0] + '-' + results[key][1])
-        var y = results[key][1] - 235
-        var x = results[key][0] - 25
-        ctx.fillRect(x,y,10,10);
+        console.log(results[key][0] + '-' + results[key][1]);
+        var y = results[key][1] - 200;
+        var x = results[key][0];
+        var img= new Image();
+        img.src = '/pointer.gif';
+        ctx.drawImage(img,x,y);
+        //ctx.fillRect(x,y,10,10);
     }
 
 
