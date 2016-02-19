@@ -10,15 +10,21 @@ var users = {};
 io.on('connect', function (socket) {
     users[socket] = [0,0];
     console.log('Looksies! We got ourselves a user!');
-    io.emit('logger:history');
+    console.log(users)
 
     socket.on('server:result', function (data) {
         console.log("server:result");
         users[socket] = [data[0],data[1]];
-        console.log(users)
-        io.emit('client:display', users);
+
     });
+
+    setInterval(function () {
+        io.emit('client:display', users);
+    }, 500);
+
 });
+
+
 
 setInterval(function () {
     io.emit('logger:run');

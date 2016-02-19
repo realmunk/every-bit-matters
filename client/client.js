@@ -19,8 +19,8 @@ socket.on('client:display', function (results) {
         var y = results[key][1] - 235
         var x = results[key][0] - 25
         ctx.fillRect(x,y,10,10);
-        console.log(results[0])
     }
 
 
 });
+
