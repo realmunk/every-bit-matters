@@ -5,12 +5,46 @@ var sizeMult = 2;
 var speedDL = 1;
 var speedUL = 1.3;
 
+/*
+
+in:
+    dl speed 0-100
+    ul speed 0-100
+    ping 0-1000
+
+out:
+    speed 40-800
+    lifespan 100-4000
+    maxparticles: 5-600
+
+
+visu:
+    dl/ul:
+        speed:
+            min=speed-speed/10)* out speed range
+            max=speed+speed/10)* out speed range
+
+        lifespan:
+            related to speed:
+                less speed = longer lifespan
+                100 if max speed
+                4000 if min speed
+
+        maxparticles:
+            depends (loosely) on ping
+            higher ping = less particles
+
+    Make dl come in from outside towards center, and upload out?
+
+*/
+
+
 var fireConfig = {
-  maxParticles: 500,
+  maxParticles: 200,
   spawnDelay: 10,
   lifeSpan: {
-    min: 2000,
-    max: 2000
+    min: 1000,
+    max: 1800
   },
   alpha: {
     min: 1.0,
@@ -18,7 +52,7 @@ var fireConfig = {
   },
   alphaDecay: {
     min: 0.0,
-    max: 0.2
+    max: 0.8
   },
   colour: ["#F81810", "#6D0703"],
   radius: {
@@ -34,8 +68,8 @@ var fireConfig = {
     max: Math.PI
   },
   speed: {
-    min: 50,
-    max: 200
+    min: 20,
+    max: 80
   }
 };
 
@@ -54,7 +88,7 @@ var smokeConfig = {
     min: 0,
     max: 0.2
   },
-  colour: ["#F8D010", "#00A1FF"],//["#1A1A1A", "#0A0A0A", "#2B2B2B"],
+  colour: ["#F8D010", "#00A1FF"],
   radius: {
     min: 20*sizeMult,
     max: 40*sizeMult
