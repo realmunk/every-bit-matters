@@ -42,14 +42,14 @@ var smokeConfig = {
     max: 10000
   },
   alpha: {
-    min: 0.8,
-    max: 1.0
+    min: 0.7,
+    max: 0.9
   },
   alphaDecay: {
     min: 0,
-    max: 0.3
+    max: 0.2
   },
-  colour: ["#7CB5EC"],//["#1A1A1A", "#0A0A0A", "#2B2B2B"],
+  colour: ["#00A1FF"],//["#1A1A1A", "#0A0A0A", "#2B2B2B"],
   radius: {
     min: 20*sizeMult,
     max: 40*sizeMult

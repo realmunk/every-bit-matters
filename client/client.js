@@ -89,7 +89,7 @@ function init(data){
             name: 'Download',
             data: download_series,
             color: '#F81810',
-            zindex: 2,
+            zIndex: 2,
             lineWidth: '1px',
         }, {
             name: 'Upload',
@@ -97,14 +97,14 @@ function init(data){
             color: '#F8D010',
             lineWidth: '1px',
             dashStyle: 'ShortDash',
-            zindex: 2,
+            zIndex: 2,
         }, {
             name: 'Ping',
             type: 'column',
             data: ping_series,
-            color: "#00A1FF",
+            color: "#8CD5FF",
             yAxis: 1,
-            zindex: 1,
+            zIndex: 1,
             pointWidth: 1,
             visible: false,
 
