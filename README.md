@@ -14,15 +14,12 @@ A screenshot of how the speed test visualization
  * Updated dynamically
  * Zoomable & pannable
  * Toggle what information to show
- 
 * Visualization of network speed and latency
  * Upload & download speed separated and visualized by block speed
  * Ping visualized by only spawning a new block every PING milliseconds
- 
 * Stats
  * Top dl & ul speed
  * Shortest ping time
- 
 * Sortable table with historic data
 * ???
 
@@ -37,10 +34,10 @@ A screenshot of how the speed test visualization
 * Switch to branch 'master'
 * Install npm packages (same as forked project): npm install .
 * Run ```npm logger/logger.js``` and ```npm start```
-* Navigate to http://localhost:3000
+* Navigate to ```http://localhost:3000```
 * Wait for logger data if you have none
 
 ## Testing
-* To simulate different network speeds for the visualizer edit the parameters of 'updateVisualizationFromData' in the socket.on('client:update'... function in client.js
+* To simulate different network speeds for the visualizer edit the parameters of ```updateVisualizationFromData``` in the ```socket.on('client:update'```... function in ```client.js```
 * Select a time period in the graph to zoom in on it
 * Display ping data in the graph by clicking the disabled Ping label at the bottom
