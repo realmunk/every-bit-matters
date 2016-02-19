@@ -14,8 +14,13 @@ socket.on('client:display', function (results) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var y = results[1] - 200
-    ctx.fillRect(results[0],y,10,10);
-    console.log(results[0])
+    for (var key in results){
+        console.log(results[key][0] + '-' + results[key][1])
+        var y = results[key][1] - 235
+        var x = results[key][0] - 25
+        ctx.fillRect(x,y,10,10);
+        console.log(results[0])
+    }
+
 
 });
