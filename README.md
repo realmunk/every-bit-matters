@@ -2,7 +2,7 @@ BL4ZE
 =====
 Blazing fast speed-tests
 
-###every-bit-matters competition entry 2016
+###every-bit-matters contest entry 2016
 By Nicolas Almagro Tonne - me@nixo.no - BiT - NTNU
 
 ![ScreenShot](https://raw.githubusercontent.com/nixolas1/every-bit-matters/main/screen2.png)
