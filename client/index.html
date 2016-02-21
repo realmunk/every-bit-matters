@@ -1,11 +1,102 @@
-<!DOCTYPE HTML>
 <html>
-<head>
-    <title>Every Bit Matters</title>
-    <link href="css/client.css" rel="stylesheet">
-    <script src="client.js"></script>
-</head>
-<body>
-    <h1>Every Bit Matters Workshop</h1>
-</body>
+    <head>
+        <title>Blaze</title>
+        <link rel="shortcut icon" type="image/png" href="fireball.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/client.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="socket.io.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.25.4/js/jquery.tablesorter.min.js"></script>
+
+    </head>
+    <body>
+        <div class="nav text-center">
+            <h4>
+                <img src="fireball.png" height="50px"/>
+                BL4ZE
+            </h4>
+        </div>
+        <div class="container">
+            <div class="valign-wrapper fullheight">
+                <div class="valign">
+                    <div class="row">
+                        <div class="col l6 s12 head">
+                            <div class="">
+                                <h1 class="info">
+                                    <div>DOWN <span class="bold" id="download" title="MB/s">–</span>
+                                        <small class="red-text hide">
+                                            <i class="material-icons big">keyboard_arrow_down</i>3
+                                        </small>
+                                    </div>
+                                    <div>UP <span class="bold" id="upload" title="MB/s">–</span> 
+                                        <small class="green-text hide">
+                                            <i class="material-icons big">keyboard_arrow_up</i>5
+                                        </small>
+                                    </div>
+                                    <div>PING <span class="bold" id="ping" title="ms">–</span> 
+                                        <small class="red-text hide">
+                                            <i class="material-icons big">keyboard_arrow_down</i>2
+                                        </small>
+                                    </div>
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="col l6 hide-on-small-only flame-container valign-wrapper">
+                            <div class="offline valign center-align">
+                                <h2 class="thin">
+                                <i class="material-icons big">sync_problem</i> NO LIVE DATA
+                                </h2>
+                            </div>
+                            <canvas id="flame"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="graph" class="graph">
+                <!-- Here lies a hidden map -->
+            </div>
+
+            <div class="row">
+                <div class="col l12">
+                    <h2 class="thin">STATS</h2>
+                    <div class="stats">
+                        <h3 class="info">
+                            <div>MAX DOWN <span class="bold" id="stat-download" title="MB/s">-</span>
+                            </div>
+                            <div>MAX UP <span class="bold" id="stat-upload" title="MB/s">-</span> 
+                            </div>
+                            <div>MIN PING <span class="bold" id="stat-ping" title="ms">-</span> 
+                            </div>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col l12">
+                    <h2 class="thin">HISTORIC DATA <small class="thin">(SORTABLE)</small></h2>
+                    <table class="highlight striped tablesorter" id="history-table">
+                        <thead>
+                            <tr>
+                                <th title="Sort on this column">Down</th>
+                                <th title="Sort on this column">Up</th>
+                                <th title="Sort on this column">Ping</th>
+                                <th title="Sort on this column">Date</th>
+                                <th title="Sort on this column">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history">
+                            <!-- Here be dragons -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script src="flame.js"></script>
+        <script src="client.js"></script>
+    </body>
 </html>

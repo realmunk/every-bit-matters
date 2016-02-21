@@ -1,9 +1,89 @@
-body {
-    padding: 10px;
-    font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif;
-}
-
 h1, h2, h3, h4, h5 {
     font-weight: 300;
 }
 
+.fullheight {
+    height: 100%;
+}
+
+.big {
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+.bold {
+    font-weight: bold !important;
+}
+
+.nav {
+    position: fixed;
+    top:5px;
+    left:25px;
+    width: 100%;
+    height: auto;
+}
+
+.head {
+    height: 70%;
+}
+
+.head .info {
+    font-weight: 200;
+    font-size: 8rem;
+    font-size: 11vmin;
+    text-align: right;
+}
+
+.history {
+    max-height: 300px;
+}
+
+.graph {
+    min-height: 200px;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    float: right;
+    position: absolute;
+    /*z-index: -1;*/
+}
+
+.graph .highcharts-container {
+    float: right;
+}
+
+.valign{
+    width: 100%;
+}
+
+.tablesorter-header{
+    cursor: pointer;
+}
+
+.flame-container{
+    height: 50%;
+}
+
+.offline{
+    opacity: 0.5;
+}
+
+#flame {
+    height: 100%;
+    width: 100%;
+    min-height: 200px;
+    display: none;
+}
+
+#ping{
+    color: #00A1FF;
+}
+
+#upload{
+    color: #F8D010;
+}
+
+#download{
+    color: #F81810;
+}
