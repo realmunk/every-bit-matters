@@ -16,6 +16,8 @@ socket.on('connect', function (data) {
     console.log("I am connected");
 });
 
+//todo: fix lag on new data, multiple users
+
 function pad(n){return n<10 ? '0'+n : n}
 
 //Convert speed test data to a table row
