@@ -15,8 +15,8 @@ A screenshot of the speed test visualization
  * Zoomable & pannable
  * Toggle what information to show
 * Visualization of network speed and latency
- * Upload & download speed separated and visualized by block speed
- * Ping visualized by only spawning a new block every PING milliseconds
+ * Upload & download speed separated and visualized by particle speed
+ * Ping visualized by only spawning a new particle every PING milliseconds
 * Stats
  * Top dl & ul speed
  * Shortest ping time
