@@ -33,9 +33,10 @@ A screenshot of the speed test visualization
 ## Getting started
 * Switch to branch 'master'
 * Install npm packages (same as forked project): ```npm install .```
-* Run ```npm logger/logger.js``` and ```npm start```
+* Run ```node logger/logger.js``` and ```npm start```
 * Navigate to ```http://localhost:3000```
 * Wait for logger data if you have none
+* Leave it running for a minimum of 30 mins to see the graph propely
 
 ## Testing
 * To simulate different network speeds for the visualizer edit the parameters of ```updateVisualizationFromData``` in the ```socket.on('client:update'```... function in ```client.js```
