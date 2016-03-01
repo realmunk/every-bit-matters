@@ -1,7 +1,6 @@
 var socket = io();
 var marks = [];
-var markers = [];
-var first = 0;
+
 
 socket.on('connect', function (data) {
     console.log("I am connected");
@@ -55,12 +54,6 @@ function addMarker(bool) {
     tbody.appendChild(tr);
     setMarker(marks.length - 1);
 }
-
-
-
-
-
-
 
 socket.on('client:display', function (results) {
     if(results.length > 1){
