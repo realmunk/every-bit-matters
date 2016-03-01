@@ -6,6 +6,7 @@ socket.on('connect', function (data) {
 });
 
 socket.on('client:display', function (results) {
+    console.log(results[0].lat);
     var latlon = {lat: results[0].lat,  lng: results[0].lon};
     var marker = new google.maps.Marker({
         position: latlon,
