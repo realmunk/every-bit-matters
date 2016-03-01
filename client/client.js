@@ -23,8 +23,6 @@ function initMap(){
 
 
 function setMarker(index){
-    console.log((marks[index].lat));
-
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
         position: position,
@@ -39,22 +37,21 @@ function setMarker(index){
 function addMarker(bool){
     var tbody = document.getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
-    if(bool == true){
-        var tr = document.createElement("tr");
-        var ip = document.createElement('td');
-        var ping = document.createElement('td');
-        var download = document.createElement('td');
-        var upload = document.createElement('td');
-        ip.textContent = marks[marks.length-1].ip;
-        ping.textContent = marks[marks.length-1].ping;
-        download.textContent = marks[marks.length-1].download;
-        upload.textContent = marks[marks.length-1].upload;
-        tr.appendChild(ip);
-        tr.appendChild(ping);
-        tr.appendChild(download);
-        tr.appendChild(upload);
-        tbody.appendChild(tr);
-        markers.push(setMarker(marks.length-1));
+    var tr = document.createElement("tr");
+    var ip = document.createElement('td');
+    var ping = document.createElement('td');
+    var download = document.createElement('td');
+    var upload = document.createElement('td');
+    ip.textContent = marks[marks.length-1].ip;
+    ping.textContent = marks[marks.length-1].ping;
+    download.textContent = marks[marks.length-1].download;
+    upload.textContent = marks[marks.length-1].upload;
+    tr.appendChild(ip);
+    tr.appendChild(ping);
+    tr.appendChild(download);
+    tr.appendChild(upload);
+    tbody.appendChild(tr);
+    markers.push(setMarker(marks.length-1));
     }
     /*
     else{
