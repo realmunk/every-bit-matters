@@ -132,9 +132,10 @@ function injectData(data){
 }
 
 function addPointsToGraph(data, shift){
-    chart.series[0].addPoint([data.date, data.download], true, shift);
-    chart.series[1].addPoint([data.date, data.upload], true, shift);
-    chart.series[2].addPoint([data.date, data.ping], shift);
+    chart.series[0].addPoint([data.date, data.download], false, shift);
+    chart.series[1].addPoint([data.date, data.upload], false, shift);
+    chart.series[2].addPoint([data.date, data.ping], false, shift);
+    chart.redraw();
 }
 
 function checkHighscore(dl, ul, ping){
