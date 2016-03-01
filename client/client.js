@@ -23,7 +23,7 @@ function initMap(){
 
 
 function setMarker(index){
-    var position = {lat: marks[index].lat, lng:marks[index].lon}
+    var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
         position: position,
         setMap: map,
@@ -54,6 +54,7 @@ function addMarker(bool){
         tbody.appendChild(tr);
         markers.push(setMarker(marks.length-1));
     }
+    /*
     else{
         var table = document.getElementById("myTable");
         for (var i = 0, row; row = table.rows[i]; i++) {
@@ -65,11 +66,11 @@ function addMarker(bool){
                 row.cell[1] = marks[bool].ping;
                 row.cell[2] = marks[bool].download;
                 row.cell[3] = marks[bool].upload;
-            }*/
+            }
 
         }
 
-    }
+    }*/
 
 
 
