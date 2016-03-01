@@ -98,6 +98,7 @@ function checkLastTest(test) {
 socket.on('client:display', function (results) {
     if(results.length > 1){
         var lastTest = $(results).get(-1);
+        console.log(lastTest);
         addMarker(checkLastTest(lastTest));
 
     }
