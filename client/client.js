@@ -8,12 +8,12 @@ socket.on('connect', function (data) {
     console.log(document.getElementsByTagName("tr")[0].id)
 });
 
-
+var map;
 
 function initMap(){
     var myLatLng = {lat: 63.363, lng: 10.044};
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: myLatLng
     });
@@ -26,7 +26,7 @@ function setMarker(index){
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
         position: position,
-        setMap: map,
+        map: map,
         title: marks[index].ip
     });
     return marker;
