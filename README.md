@@ -39,6 +39,6 @@ A screenshot of the speed test visualization
 * Leave it running for a minimum of 30 mins to see the graph propely
 
 ## Testing
-* To simulate different network speeds for the visualizer edit the parameters of ```updateVisualizationFromData``` in the ```socket.on('client:update'```... function in ```client.js```
+* A demo with random data is running on `http://bl4ze.herokuapp.com` or you can checkout the ```demo``` branch.
 * Select a time period in the graph to zoom in on it
 * Display ping data in the graph by clicking the disabled Ping label at the bottom
