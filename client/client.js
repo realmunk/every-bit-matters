@@ -23,6 +23,7 @@ function initMap(){
 
 
 function setMarker(index){
+    console.log(typeof (parseFloat(marks[index].lat)));
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
         position: position,
