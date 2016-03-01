@@ -3,6 +3,11 @@ body {
     font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
+#map{
+    height:500px;
+    width: 500px;
+}
+
 #wrapper {
     max-width: 600px;
     margin: 0 auto;

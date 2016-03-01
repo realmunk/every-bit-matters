@@ -18,13 +18,15 @@ socket.on('logger:run', function () {
     var test = speedtest();
 
     test.on('data', function (data) {
+        console.log(data)
         var result = {
             download: data.speeds.download,
             upload: data.speeds.upload,
             ping: data.server.ping,
             date: Date.now(),
             ip: data.client.ip,
-            mac: data.client.mac
+            lat: data.client.lat,
+            lon: data.client.lon
         };
 
         history.push(result);

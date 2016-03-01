@@ -6,7 +6,14 @@ socket.on('connect', function (data) {
 });
 
 socket.on('client:display', function (results) {
+    var latlon = {lat: results[0].lat,  lng: result[0].lon};
+    var marker = new google.maps.Marker({
+        position: latlon,
+        map: map,
+        name: results[0].ip
+    });
 
+    /*
     var tbody = document.getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
 
@@ -26,16 +33,24 @@ socket.on('client:display', function (results) {
         download.textContent = result.download;
         upload.textContent = result.upload;
         ip.textContent = result.ip;
-        mac.textContent = result.mac;
         // append columns to row
         tr.appendChild(date);
         tr.appendChild(ping);
         tr.appendChild(download);
         tr.appendChild(upload);
         tr.appendChild(ip);
-        tr.appendChild(mac);
         // append row to tbody
         tbody.appendChild(tr);
-    });
+    });*/
 
 });
+
+function initMap() {
+    var myLatLng = {lat: 63.363, lng: 10.044};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+        center: myLatLng
+    });
+
+}
