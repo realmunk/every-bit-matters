@@ -3,7 +3,22 @@ body {
     font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
+#map{
+    height:500px;
+    width: 500px;
+}
+
+#wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 h1, h2, h3, h4, h5 {
     font-weight: 300;
 }
 
+table {
+    text-align: left;
+    padding: 5px;
+    min-width: 100%;
+}
