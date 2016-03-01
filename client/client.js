@@ -20,10 +20,16 @@ function initMap() {
 
 }
 
-function setMarker(mark){
-
-
+function setMarker(index){
+    var marker = new google.maps.Marker({
+        position: {lat: marks[index].lat, lng:marks[index].lon},
+        map: map,
+        title: marks[index].ip
+    });
+    return marker;
 }
+
+
 
 function addMarker(bool){
     var tbody = document.getElementsByTagName('tbody')[0];
@@ -43,12 +49,13 @@ function addMarker(bool){
         tr.appendChild(download);
         tr.appendChild(upload);
         tbody.appendChild(tr);
-        setMarker(marks[marks.length-1]);
+        markers.push(setMarker(marks.length-1));
     }
     else{
         var table = document.getElementById("myTable");
         for (var i = 0, row; row = table.rows[i]; i++) {
-            if(row.cell[0] === marks[bool].ip){
+            console.log(row.cell[0], marks[bool].ip);
+            if(row.cell[0] == marks[bool].ip){
                 row.cell[1] = marks[bool].ping;
                 row.cell[2] = marks[bool].download;
                 row.cell[3] = marks[bool].upload;
