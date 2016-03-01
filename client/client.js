@@ -23,9 +23,10 @@ function initMap(){
 
 
 function setMarker(index){
+    var position = {lat: marks[index].lat, lng:marks[index].lon}
     var marker = new google.maps.Marker({
-        position: {lat: marks[index].lat, lng:marks[index].lon},
-        map: map,
+        position: position,
+        setMap: map,
         title: marks[index].ip
     });
     return marker;
