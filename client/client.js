@@ -28,7 +28,7 @@ function setMarker(index){
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
         position: position,
-        map: map,
+        setMap: map,
         title: marks[index].ip
     });
     return marker;
