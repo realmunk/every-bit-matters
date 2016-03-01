@@ -16,6 +16,10 @@ function initMap(){
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: myLatLng
+        styles: [{
+            featureType: 'poi',
+            stylers: [{ visibility: 'off' }]  // Turn off points of interest.
+        }]
     });
 
 }
