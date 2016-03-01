@@ -242,6 +242,6 @@ function update(timestamp) {
 function resizeCanvas() {
   can.width = $("#flame").width();
   can.height = $("#flame").height();
-  mouse.x = $("#flame").width() / 2;
+  mouse.x = $("#flame").width() / 1.5;
   mouse.y = $("#flame").height() / 2;
 }
