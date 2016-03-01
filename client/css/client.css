@@ -13,29 +13,6 @@ body {
     margin: 0 auto;
 }
 
-.highscore{
-    max-width: 600px;
-    margin: 0 auto;
-    width: 33%;
-    float: left;
-    border-bottom-color: #111111;
-    border: 1px solid;
-}
-
-.highscore h4{
-    width: 50%;
-    margin: 0 auto;
-}
-
-#download{
-
-}
-#upload{
-}
-
-#ping{
-}
-
 h1, h2, h3, h4, h5 {
     font-weight: 300;
 }
