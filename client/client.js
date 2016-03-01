@@ -43,7 +43,7 @@ function addMarker(bool) {
     var ping = document.createElement('td');
     var download = document.createElement('td');
     var upload = document.createElement('td');
-    date.textContent = Date.now();
+    date.textContent = (new Date(result.date)).toLocaleString()
     ping.textContent = marks[marks.length - 1].ping;
     download.textContent = marks[marks.length - 1].download;
     upload.textContent = marks[marks.length - 1].upload;
