@@ -10,15 +10,15 @@ socket.on('connect', function (data) {
 
 
 
-function initMap() {
-    var myLatLng = {lat: 63.363, lng: 10.044};
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: myLatLng
-    });
+var myLatLng = {lat: 63.363, lng: 10.044};
 
-}
+var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+});
+
+
 
 function setMarker(index){
     var marker = new google.maps.Marker({
