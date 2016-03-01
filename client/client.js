@@ -1,6 +1,13 @@
 var socket = io();
 var marks = [];
+/*
+I Initially wanted to make it possible for several loggers to be on at the same time, showing all the different loggers on
+both on the map, and in the list. I tried to differentiate between the different loggers with IP, but couldn't find a way to
+update the existing logger info without adding extra fields in the list(like the example).
 
+As of now, if several loggers tries to send their speedtests to this url: https://secure-inlet-73284.herokuapp.com/
+The latest speedtest will be shown, no matter where it comes from. The marker will also change when the test-data changes.
+ */
 
 socket.on('connect', function (data) {
     console.log("I am connected");
