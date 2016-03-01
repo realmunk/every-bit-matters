@@ -52,7 +52,7 @@ function addMarker(bool){
     tr.appendChild(upload);
     tbody.appendChild(tr);
     markers.push(setMarker(marks.length-1));
-    }
+
     /*
     else{
         var table = document.getElementById("myTable");
