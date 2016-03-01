@@ -18,7 +18,6 @@ socket.on('logger:run', function () {
     var test = speedtest();
 
     test.on('data', function (data) {
-        console.log(data)
         var result = {
             download: data.speeds.download,
             upload: data.speeds.upload,
