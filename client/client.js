@@ -54,12 +54,15 @@ function addMarker(bool){
     else{
         var table = document.getElementById("myTable");
         for (var i = 0, row; row = table.rows[i]; i++) {
-            console.log(row.cell[0], marks[bool].ip);
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                console.log(col);
+            }
+            /*
             if(row.cell[0] == marks[bool].ip){
                 row.cell[1] = marks[bool].ping;
                 row.cell[2] = marks[bool].download;
                 row.cell[3] = marks[bool].upload;
-            }
+            }*/
 
         }
 
