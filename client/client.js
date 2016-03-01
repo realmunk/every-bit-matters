@@ -39,15 +39,15 @@ function addMarker(bool) {
     var tbody = document.getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
     var tr = document.createElement("tr");
-    var date = document.createElement('td');
+    var ip = document.createElement('td');
     var ping = document.createElement('td');
     var download = document.createElement('td');
     var upload = document.createElement('td');
-    date.textContent = (new Date(result.date)).toLocaleString()
+    ip.textContent = marks[marks.length - 1].ip;
     ping.textContent = marks[marks.length - 1].ping;
     download.textContent = marks[marks.length - 1].download;
     upload.textContent = marks[marks.length - 1].upload;
-    tr.appendChild(date);
+    tr.appendChild(ip);
     tr.appendChild(ping);
     tr.appendChild(download);
     tr.appendChild(upload);

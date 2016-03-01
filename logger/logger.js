@@ -23,6 +23,7 @@ socket.on('logger:run', function () {
             upload: data.speeds.upload,
             ping: data.server.ping,
             date: Date.now(),
+            ip: data.client.ip,
             lat: data.client.lat,
             lon: data.client.lon
         };
