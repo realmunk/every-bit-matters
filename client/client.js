@@ -24,8 +24,8 @@ function initMap(){
 
 function setMarker(index){
     console.log(typeof (parseFloat(marks[index].lat)));
-    console.log(typeof (marks[index]));
-    console.log(typeof (marks));
+    console.log((marks[index]));
+    console.log((marks));
 
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
