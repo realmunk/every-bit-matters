@@ -19,18 +19,21 @@ socket.on('client:display', function (results) {
         var download = document.createElement('td');
         var upload = document.createElement('td');
         var ip = document.createElement('td');
+        var mac = document.createElement("td");
         // add content to columns
         date.textContent = (new Date(result.date)).toLocaleString();
         ping.textContent = result.ping;
         download.textContent = result.download;
         upload.textContent = result.upload;
         ip.textContent = result.ip;
+        mac.textContent = result.mac;
         // append columns to row
         tr.appendChild(date);
         tr.appendChild(ping);
         tr.appendChild(download);
         tr.appendChild(upload);
-        tr.appendChild(ip)
+        tr.appendChild(ip);
+        tr.appendChild(mac);
         // append row to tbody
         tbody.appendChild(tr);
     });
