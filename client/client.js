@@ -5,27 +5,25 @@ var first = 0;
 
 socket.on('connect', function (data) {
     console.log("I am connected");
-    console.log(document.getElementsByTagName("tr")[0].id)
 });
 
+//Google maps from the google maps API
 var map;
 
+//Initializes the map
 function initMap(){
+    //Trondheim - Gløshaugen
     var myLatLng = {lat: 63.363, lng: 10.044};
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
         center: myLatLng,
-        styles: [{
-            featureType: 'poi',
-            stylers: [{ visibility: 'off' }]  // Turn off points of interest.
-        }]
     });
 
 }
 
 
-
+//Sets a marker on the map where the last speedtest came from.
 function setMarker(index){
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
@@ -33,12 +31,12 @@ function setMarker(index){
         map: map,
         title: marks[index].ip
     });
-    return marker;
 }
 
 
-
-function addMarker(bool){
+//Takes te last speedtest it receives and sends the info to the HTML.
+//Last speedtest is always shown, both on the map, and the info about it.
+function addMarker(bool) {
     var tbody = document.getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
     var tr = document.createElement("tr");
@@ -46,96 +44,31 @@ function addMarker(bool){
     var ping = document.createElement('td');
     var download = document.createElement('td');
     var upload = document.createElement('td');
-    ip.textContent = marks[marks.length-1].ip;
-    ping.textContent = marks[marks.length-1].ping;
-    download.textContent = marks[marks.length-1].download;
-    upload.textContent = marks[marks.length-1].upload;
+    ip.textContent = marks[marks.length - 1].ip;
+    ping.textContent = marks[marks.length - 1].ping;
+    download.textContent = marks[marks.length - 1].download;
+    upload.textContent = marks[marks.length - 1].upload;
     tr.appendChild(ip);
     tr.appendChild(ping);
     tr.appendChild(download);
     tr.appendChild(upload);
     tbody.appendChild(tr);
-    markers.push(setMarker(marks.length-1));
-
-    /*
-    else{
-        var table = document.getElementById("myTable");
-        for (var i = 0, row; row = table.rows[i]; i++) {
-            for (var j = 0, col; col = row.cells[j]; j++) {
-                console.log(col);
-            }
-            /*
-            if(row.cell[0] == marks[bool].ip){
-                row.cell[1] = marks[bool].ping;
-                row.cell[2] = marks[bool].download;
-                row.cell[3] = marks[bool].upload;
-            }
-
-        }
-
-    }*/
-
-
-
-
+    setMarker(marks.length - 1);
 }
 
-function checkLastTest(test) {
-    var counter = 0;
-    for (var i = 0; i < marks.length; i++) {
-        if (marks[0].ip != test.ip) {
-            counter += 1;
-        }
-        else{
-            marks[i].ip = test.ip;
-            return i;
-        }
-    }
-    if (counter === marks.length) {
-        marks.push(test);
-        return true;
-    }
 
-}
+
+
 
 
 
 socket.on('client:display', function (results) {
     if(results.length > 1){
         var lastTest = $(results).get(-1);
-        console.log(lastTest);
-        addMarker(checkLastTest(lastTest));
+        marks.push(lastTest);
+        addMarker();
 
     }
-
-    /*
-    var tbody = document.getElementsByTagName('tbody')[0];
-    tbody.innerHTML = '';
-
-    results.forEach(function (result) {
-        // add table row
-        var tr = document.createElement('tr');
-        // add columns
-        var date = document.createElement('td');
-        var ping = document.createElement('td');
-        var download = document.createElement('td');
-        var upload = document.createElement('td');
-        var ip = document.createElement('td');
-        // add content to columns
-        date.textContent = (new Date(result.date)).toLocaleString();
-        ping.textContent = result.ping;
-        download.textContent = result.download;
-        upload.textContent = result.upload;
-        ip.textContent = result.ip;
-        // append columns to row
-        tr.appendChild(date);
-        tr.appendChild(ping);
-        tr.appendChild(download);
-        tr.appendChild(upload);
-        tr.appendChild(ip);
-        // append row to tbody
-        tbody.appendChild(tr);
-    });*/
 
 });
 
