@@ -26,7 +26,6 @@ function setMarker(index){
     var position = {lat: parseFloat(marks[index].lat), lng: parseFloat(marks[index].lon)}
     var marker = new google.maps.Marker({
         position: position,
-        setMap: map,
         map: map,
         title: marks[index].ip
     });
@@ -53,7 +52,7 @@ function addMarker(bool){
         tr.appendChild(download);
         tr.appendChild(upload);
         tbody.appendChild(tr);
-        setMarker(marks.length-1);
+        markers.push(setMarker(marks.length-1));
     }
     /*
     else{
