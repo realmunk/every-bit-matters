@@ -34,9 +34,9 @@ Participating is a simple process. Use your own fork and clone of 'every-bit-mat
 * Include the name of your University
 
 
-### Contest Outline
+### Codebattle 
 
-All participating universities has their own local competition: 
+Each university has their own deadline two weeks after the workshop has been held:
 
 | University | Contest start    | Deadline    |
 | ---------- | ---------------- | ----------- |
@@ -45,16 +45,9 @@ All participating universities has their own local competition:
 | UiB        | 07.04.2016 16:00 | 21.04 23:59 |
 | UiT        | 12.04.2016 16:00 | 26.04 16:00 |
 
-The following week after the deadline, the submissions are reviewed by our *Grand Jury* to select the best submissions.
+The following week after the deadline, the submissions are reviewed by our *Grand Jury*.
 
-The best submissions will be awarded a prize, and qualifies to the _Battle of the Universities_.
+The submissions from each university will be reviewed and posted to our [blog](http://grensesnittet.computas.com), where the participants receive praise and honour. The best submissions will be awarded with a prize and eternal glory.
 
-## The Battle of the Universities
-
-The _Battle of the Universities_ is to be held in late June at our offices in Oslo, Norway. 
-
-The grand winner will receive an award, a great prize, glory and honour.
-
-In time, more information will come.
 
 ### Good luck!
