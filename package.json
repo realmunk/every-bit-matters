@@ -1,6 +1,7 @@
 {
   "name": "every-bit-matters",
   "version": "1.0.0",
+  "engines": {},
   "description": "Workshop providing an introduction to web-architecture through a step-by-step tutorial on how to make a full-stack web application with WebSockets. The domain is speedtesting – where Every Bit Matters.",
   "main": "web.js",
   "repository": {
@@ -23,10 +24,10 @@
   },
   "homepage": "https://github.com/krsjan/every-bit-matters#readme",
   "dependencies": {
-    "d3": "^3.5.14",
     "express": "^4.13.4",
+    "node-gyp": "^3.3.0",
+    "robotjs": "*",
     "socket.io": "^1.4.5",
-    "socket.io-client": "^1.4.5",
-    "speedtest-net": "^1.2.4"
+    "socket.io-client": "^1.4.5"
   }
 }
